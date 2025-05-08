@@ -42,10 +42,10 @@
                         </div>
 
                         <div class="form-group">
-                            <a href="{{ route('pelanggan.dashboard') }}" class="btn btn-secondary">
+                            <a href="{{ route('pelanggan.dashboard') }}" class="btn btn-danger btn-sm">
                                 Kembali
                             </a>
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary btn-sm">
                              konfirmasi
                             </button>
                         </div>
