@@ -142,8 +142,6 @@ class TagihanController extends Controller
             }
         }
 
-
-
         return redirect()->route('admin.tagihan')->with('success', 'Tagihan bulan ini berhasil diganrate!');
     }
 

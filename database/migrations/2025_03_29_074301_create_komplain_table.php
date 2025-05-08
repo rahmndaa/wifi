@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('status', ['menunggu', 'proses', 'selesai'])->notNull();
             $table->date('tanggal_komplain_selesai')->nullable();
             $table->string('bukti_komplain')->nullable();
+            $table->text('balasan_admin')->nullable();
         });
     }
 

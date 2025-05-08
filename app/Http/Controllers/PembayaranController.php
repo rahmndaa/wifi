@@ -10,6 +10,9 @@ class PembayaranController extends Controller
 {
     public function index()
 {
+    if (!session('admin')) {
+        return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
+    }
     $pembayaran = DB::table('pembayaran')
         ->join('tagihan', 'tagihan.id_tagihan', '=', 'pembayaran.id_tagihan')
         ->join('pelanggan', 'pelanggan.id_pelanggan', '=', 'tagihan.id_pelanggan')
@@ -29,6 +32,9 @@ class PembayaranController extends Controller
 
     public function formPembayaran($id_tagihan)
     {
+        if (!session('admin')) {
+            return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
+        }
         $tagihan = DB::table('tagihan')
             ->join('pelanggan', 'tagihan.id_pelanggan', '=', 'pelanggan.id_pelanggan')
             ->leftJoin('paket_wifi', 'pelanggan.id_paket', '=', 'paket_wifi.id_paket')
@@ -45,6 +51,9 @@ class PembayaranController extends Controller
 
     public function uploadPembayaran(Request $request, $id_tagihan)
     {
+        if (!session('admin')) {
+            return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
+        }
         $request->validate([
             'metode_pembayaran' => 'required|in:transfer,tunai',
         ]);

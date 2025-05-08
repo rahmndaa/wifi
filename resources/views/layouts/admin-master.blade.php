@@ -103,7 +103,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('admin.komplain') ? 'active' : '' }}" href="#">
+                            <a class="nav-link {{ request()->routeIs('admin.komplain') ? 'active' : '' }}" href="{{ route('admin.komplain.index') }}">
                                 <i class="nav-icon fas fa-info"></i>
                                 <p>Pengaduan</p>
                             </a>

@@ -31,7 +31,14 @@
                         <dt class="col-sm-3">Status</dt>
                         <dd class="col-sm-9">{{ ucfirst($tagihan->status) }}</dd>
                     </dl>
-
+                    @if($tagihan->bukti_transfer)
+                    <hr>
+                    <p><strong>Bukti Transfer:</strong><br>
+                        <a href="{{ asset('storage/' . $tagihan->bukti_transfer) }}" target="_blank">
+                            <img src="{{ asset('storage/' . $tagihan->bukti_transfer) }}" width="500">
+                        </a>
+                    </p>
+                @endif
                     <div class="mt-3">
                         <a href="{{ route('admin.tagihan') }}" class="btn btn-danger btn-sm">Kembali</a>
 

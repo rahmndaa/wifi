@@ -106,8 +106,8 @@
                                         $pembayaran = DB::table('pembayaran')->where('id_tagihan', $t->id_tagihan)->first();
                                     @endphp
                                     @if ($pembayaran && $pembayaran->bukti_transfer)
-                                        <a href="{{ Storage::url($pembayaran->bukti_transfer) }}" target="_blank">
-                                            <i class="fas fa-image fa-lg text-info"></i>
+                                        <a href="{{ Storage::url($pembayaran->bukti_transfer) }}" target="_blank" class="btn btn-primary btn-xs">
+                                            <i class="fas fa-image fa-lg"></i>
                                         </a>
                                     @else
                                         <span class="text-muted">-</span>
@@ -116,10 +116,9 @@
                                 <td>
                                     <a href="https://wa.me/{{ $t->pelanggan->no_whatsapp }}?text={{ urlencode('Halo ' . $t->pelanggan->nama_pelanggan . ', ini tagihan Anda untuk periode ' . $t->periode_bulan . '/' . $t->periode_tahun . ' sebesar Rp ' . number_format($t->total_tagihan, 0, ',', '.') .
                                      '. Segera lakukan pembayaran di dalam website fdl.my.id atau datang ke gerai. Sekian terima kasih. Hormat kami, TTD Fadlnet.') }}" target="_blank" class="btn btn-success btn-xs">
-                                        <i class="fa fa-paper-plane fa-xs"> </i>
+                                        <i class="fa fa-paper-plane fa-sm"></i>
                                     </a>   
-                                </td>
-                                                                
+                                </td>                                      
                                 <td class="text-center">
                                     <a href="{{ route('admin.tagihan.show', $t->id_tagihan) }}" class="btn btn-primary btn-xs">
                                         <i class="fa fa-eye fa-xs"> Detail</i> 

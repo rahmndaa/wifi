@@ -27,5 +27,10 @@ class Pelanggan extends Model
     {
         return $this->belongsTo(PaketWifi::class, 'id_paket');
     }
+    public function komplain()
+    {
+    return $this->hasMany(Komplain::class, 'id_pelanggan', 'id_pelanggan'); 
+    }
+
     
 }

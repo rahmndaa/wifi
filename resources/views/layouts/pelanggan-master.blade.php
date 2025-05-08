@@ -87,13 +87,13 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('pelanggan.dashboard') ? 'active' : '' }}" href="#">
+                            <a class="nav-link {{ request()->routeIs('pelanggan.dashboard') ? 'active' : '' }}" href="{{ route('pelanggan.dashboard') }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Dasboard</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('ticket.*') ? 'active' : '' }}" href="#">
+                            <a class="nav-link {{ request()->routeIs('pelanggan.komplain') ? 'active' : '' }}" href="{{ route('pelanggan.komplain.index') }}">
                                 <i class="nav-icon fas fa-info"></i>
                                 <p>Pengaduan</p>
                             </a>

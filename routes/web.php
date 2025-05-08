@@ -9,6 +9,8 @@ use App\Http\Controllers\TagihanController;
 use App\Http\Controllers\PelangganTagihanController;
 use App\Http\Controllers\PembayaranPelangganController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\KomplainAdminController;
+use App\Http\Controllers\KomplainPelangganController;
 
  
 // Route Admin
@@ -53,15 +55,25 @@ Route::get('/admin/dashboard', [AdminAuthController::class, 'dashboard'])->name(
     Route::get('/admin/tagihan/{id}/pembayaran', [PembayaranController::class, 'formPembayaran'])->name('admin.tagihan.pembayaran.form');
     Route::post('/admin/tagihan/{id}/pembayaran', [PembayaranController::class, 'uploadPembayaran'])->name('admin.tagihan.pembayaran');
     Route::get('/admin/pembayaran', [PembayaranController::class, 'index'])->name('admin.pembayaran');
+    
+    Route::get('/admin/komplain', [KomplainAdminController::class, 'index'])->name('admin.komplain.index');
+    Route::get('/admin/komplain/{id}', [KomplainAdminController::class, 'show'])->name('admin.komplain.show');
+    Route::get('/admin/komplain/{id}/update-status', [KomplainAdminController::class, 'updateStatus'])->name('admin.komplain.updateStatus');
+    Route::put('/admin/komplain/{id}/update-status', [KomplainAdminController::class, 'updateStatus'])->name('admin.komplain.updateStatus');
+    Route::get('/admin/komplain/{id}/balas', [KomplainAdminController::class, 'formBalas'])->name('admin.komplain.balas.form');
+    Route::post('/admin/komplain/{id}/balas', [KomplainAdminController::class, 'kirimBalasan'])->name('admin.komplain.balas.kirim');
 
 // Route pelanggan
 Route::get('/pelanggan/login', [PelangganAuthController::class, 'showLoginForm'])->name('pelanggan.login');
 Route::post('/pelanggan/login', [PelangganAuthController::class, 'login']);
 Route::post('pelanggan/logout', [PelangganAuthController::class, 'logout'])->name('pelanggan.logout');
-
     
     // Tagihan (Pelanggan)
     Route::get('/pelanggan/dashboard/tagihan', [PelangganTagihanController::class, 'index'])->name('pelanggan.dashboard');
     Route::get('/pelanggan/pembayaran/{id}', [PembayaranPelangganController::class, 'formPembayaran'])->name('pelanggan.pembayaran.form');
     Route::post('/pelanggan/pembayaran/{id}', [PembayaranPelangganController::class, 'prosesPembayaran'])->name('pelanggan.pembayaran.proses');
 
+    // Komplain (Pelanggan)
+    Route::get('/pelanggan/komplain', [KomplainPelangganController::class, 'index'])->name('pelanggan.komplain.index');
+    Route::get('/pelanggan/komplain/create', [KomplainPelangganController::class, 'create'])->name('pelanggan.komplain.create');
+    Route::post('/pelanggan/komplain', [KomplainPelangganController::class, 'store'])->name('pelanggan.komplain.store');

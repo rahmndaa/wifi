@@ -38,8 +38,8 @@
                                     <td>{{ $p->tanggal_bayar }}</td>
                                     <td class="text-center">
                                         @if ($p->bukti_transfer)
-                                            <a href="{{ Storage::url($p->bukti_transfer) }}" target="_blank">
-                                                <i class="fas fa-image fa-lg text-info"></i>
+                                            <a href="{{ Storage::url($p->bukti_transfer) }}" target="_blank" class="btn btn-primary btn-xs">
+                                                <i class="fas fa-image fa-lg"></i>
                                             </a>
                                      
                                         @else
