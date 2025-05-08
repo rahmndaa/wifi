@@ -1,0 +1,50 @@
+@extends('layouts.admin-master')
+
+@section('content')
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <h3 class="mb-0">Detail Tagihan</h3>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card shadow rounded">
+                <div class="card-header">
+                    <h3 class="card-title mb-0">Informasi Tagihan</h3>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">Nama Pelanggan</dt>
+                        <dd class="col-sm-9">{{ $tagihan->pelanggan->nama_pelanggan }}</dd>
+
+                        <dt class="col-sm-3">Periode</dt>
+                        <dd class="col-sm-9">{{ $tagihan->periode_bulan }}/{{ $tagihan->periode_tahun }}</dd>
+
+                        <dt class="col-sm-3">Paket</dt>
+                        <dd class="col-sm-9">{{ $tagihan->pelanggan->paketWifi->nama_paket ?? '-' }}</dd>
+
+                        <dt class="col-sm-3">Total Tagihan</dt>
+                        <dd class="col-sm-9">Rp {{ number_format($tagihan->total_tagihan, 0, ',', '.') }}</dd>
+
+                        <dt class="col-sm-3">Status</dt>
+                        <dd class="col-sm-9">{{ ucfirst($tagihan->status) }}</dd>
+                    </dl>
+
+                    <div class="mt-3">
+                        <a href="{{ route('admin.tagihan') }}" class="btn btn-secondary">Kembali</a>
+
+                        @if($tagihan->status == 'belum lunas')
+                        <a href="{{ route('admin.tagihan.pembayaran.form', $tagihan->id_tagihan) }}" class="btn btn-primary">Bayar Tagihan</a>
+                        @elseif ($tagihan->status == 'pending')
+                        <a href="{{ route('admin.tagihan.pembayaran.form', $tagihan->id_tagihan) }}" class="btn btn-primary">Konfirmasi</a>
+                        @endif
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@endsection
