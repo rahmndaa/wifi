@@ -40,7 +40,7 @@
                                         <td>{{ $p->nama_pelanggan }}</td>
                                         <td>{{ $p->username }}</td>
                                         <td>{{ $p->no_whatsapp }}</td>
-                                        <td>{{ $p->paketwifi->nama_paket ?? 'Tidak Ada' }}</td>
+                                        <td>{{ $p->paketwifi->nama_paket ?? '-' }}</td>
                                         <td>
                                             @if ($p->status_pelanggan == 'aktif')
                                                 <span class="badge bg-success">Aktif</span>

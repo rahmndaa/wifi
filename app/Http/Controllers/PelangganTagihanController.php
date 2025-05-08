@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tagihan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class PelangganTagihanController extends Controller
 {
@@ -15,10 +15,10 @@ class PelangganTagihanController extends Controller
 
         $idPelanggan = session('pelanggan')['id_pelanggan'];
 
-        $tagihan = DB::table('tagihan')
+        // Menggunakan Eloquent untuk mengambil data tagihan
+        $tagihan = Tagihan::with('paketwifi')
             ->where('id_pelanggan', $idPelanggan)
-            ->orderByDesc('periode_tahun')
-            ->orderByDesc('periode_bulan')
+            ->orderByDesc('id_tagihan')
             ->get();
 
         return view('pelanggan.dashboard', compact('tagihan'));

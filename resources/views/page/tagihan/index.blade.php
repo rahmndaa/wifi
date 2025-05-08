@@ -50,8 +50,9 @@
                 <div class="col-md-2">
                     <select name="status" class="form-control">
                         <option value="">Status</option>
-                        <option value="belum lunas" {{ request('status') == 'belum lunas' ? 'selected' : '' }}>Belum Lunas</option>
                         <option value="lunas" {{ request('status') == 'lunas' ? 'selected' : '' }}>Lunas</option>
+                        <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Menunggu</option>
+                        <option value="belum lunas" {{ request('status') == 'belum lunas' ? 'selected' : '' }}>Belum Lunas</option>
                     </select>
                 </div>
                 <div class="col-md-1">
@@ -75,6 +76,7 @@
                                 <th>ID Tagihan</th>
                                 <th>Nama</th>
                                 <th>Periode</th>
+                                <th>Paket</th>
                                 <th>Total</th>
                                 <th>Status</th>
                                 <th>Bukti Transfer</th>
@@ -88,6 +90,7 @@
                                 <td>{{ $t->id_tagihan}}</td>
                                 <td>{{ $t->pelanggan->nama_pelanggan }}</td>
                                 <td>{{ $t->periode_bulan }}/{{ $t->periode_tahun }}</td>
+                                <td>{{ $t->pelanggan->paketWifi->nama_paket ?? '-' }}</td>
                                 <td>Rp {{ number_format($t->total_tagihan, 0, ',', '.') }}</td>
                                 <td>
                                     @if ($t->status == 'lunas')

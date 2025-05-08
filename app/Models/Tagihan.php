@@ -25,4 +25,10 @@ class Tagihan extends Model
     {
         return $this->belongsTo(Pelanggan::class, 'id_pelanggan');
     }
+    public function paketwifi()
+    {
+        return $this->belongsTo(PaketWifi::class, 'id_paket');
+    }
+    
+    
 }

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up() {
         Schema::create('komplain', function (Blueprint $table) {
-            $table->id('id_komplian');
+            $table->id('id_komplain');
             $table->foreignId('id_pelanggan')->constrained('pelanggan','id_pelanggan')->onDelete('cascade');
             $table->text('deskripsi')->notNull();
             $table->date('tanggal_komplain')->notNull();

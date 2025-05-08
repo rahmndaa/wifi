@@ -84,29 +84,4 @@ class PelangganController extends Controller
         Pelanggan::destroy($id);
         return redirect()->route('admin.pelanggan');
     }
-    public function bayarTagihan($id)
-{
-    $tagihan = Tagihan::with('pelanggan')->findOrFail($id);
-
-    // Konfigurasi Midtrans
-    Config::$serverKey = config('midtrans.server_key');
-    Config::$isProduction = config('midtrans.is_production');
-    Config::$isSanitized = true;
-    Config::$is3ds = true;
-
-    $params = [
-        'transaction_details' => [
-            'order_id' => 'TAGIHAN-' . $tagihan->id_tagihan . '-' . time(),
-            'gross_amount' => $tagihan->total_tagihan,
-        ],
-        'customer_details' => [
-            'first_name' => $tagihan->pelanggan->nama_pelanggan,
-            'email' => $tagihan->pelanggan->email,
-        ],
-    ];
-
-    $snapToken = Snap::getSnapToken($params);
-
-    return view('pelanggan.bayar', compact('tagihan', 'snapToken'));
-}
 }
