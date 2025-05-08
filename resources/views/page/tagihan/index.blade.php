@@ -12,13 +12,13 @@
             <form action="{{ route('admin.tagihan.generate') }}" method="POST" class="row" onsubmit="return confirm('Yakin ingin generate tagihan bulan ini?')">
                 @csrf
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-success mb-3">
+                    <button type="submit" class="btn btn-success mb-3 btn-sm">
                         <i class="fa fa-plus"></i> Generate tagihan
                     </button>
                 </div>
                 
                 <div class="col-md-6">
-                    <a href="{{ route('admin.tagihan.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.tagihan.create') }}" class="btn btn-primary btn-sm">
                         <i class="fa fa-plus"></i> Tambah Tagihan
                     </a>
                 </div>
@@ -69,7 +69,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <table class="table table-hover table-sm ">
+                    <table class="table table-hover table-responsive-sm ">
                         <thead>
                             <tr>
                                 <th>ID Tagihan</th>
@@ -78,6 +78,7 @@
                                 <th>Total</th>
                                 <th>Status</th>
                                 <th>Bukti Transfer</th>
+                                <th>WA</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -97,7 +98,7 @@
                                         <span class="badge bg-danger">Belum Lunas</span>
                                     @endif                                
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     @php
                                         $pembayaran = DB::table('pembayaran')->where('id_tagihan', $t->id_tagihan)->first();
                                     @endphp
@@ -109,25 +110,27 @@
                                         <span class="text-muted">-</span>
                                     @endif
                                 </td>
-                                </td>                                
-                                <td class="text-center">
-                                    <a href="https://wa.me/{{ $t->pelanggan->no_whatsapp }}?text={{ urlencode('Halo ' . $t->pelanggan->nama_pelanggan . ', ini tagihan Anda untuk periode ' . $t->periode_bulan . '/' . $t->periode_tahun . ' sebesar Rp ' . number_format($t->total_tagihan, 0, ',', '.') . '. Segera lakukan pembayaran di dalam website fdl.my.id atau datang ke gerai. Sekian terima kasih. Hormat kami, TTD Fadlnet.') }}" target="_blank" class="btn btn-info btn-sm">
-                                        <i class="fa fa-paper-plane"></i>
+                                <td>
+                                    <a href="https://wa.me/{{ $t->pelanggan->no_whatsapp }}?text={{ urlencode('Halo ' . $t->pelanggan->nama_pelanggan . ', ini tagihan Anda untuk periode ' . $t->periode_bulan . '/' . $t->periode_tahun . ' sebesar Rp ' . number_format($t->total_tagihan, 0, ',', '.') .
+                                     '. Segera lakukan pembayaran di dalam website fdl.my.id atau datang ke gerai. Sekian terima kasih. Hormat kami, TTD Fadlnet.') }}" target="_blank" class="btn btn-success btn-xs">
+                                        <i class="fa fa-paper-plane fa-xs"> </i>
                                     </a>   
-                                    <a href="{{ route('admin.tagihan.show', $t->id_tagihan) }}" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-eye"></i> 
+                                </td>
+                                                                
+                                <td class="text-center">
+                                    <a href="{{ route('admin.tagihan.show', $t->id_tagihan) }}" class="btn btn-primary btn-xs">
+                                        <i class="fa fa-eye fa-xs"> Detail</i> 
                                     </a>
-                                    <a href="{{ route('admin.tagihan.edit', $t->id_tagihan) }}" class="btn btn-success btn-sm">
-                                        <i class="fa fa-edit"></i> 
+                                    <a href="{{ route('admin.tagihan.edit', $t->id_tagihan) }}" class="btn btn-success btn-xs">
+                                        <i class="fa fa-edit fa-xs"> Edit</i> 
                                     </a>
                                     <form action="{{ route('admin.tagihan.destroy', $t->id_tagihan) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')">
-                                            <i class="fa fa-trash"></i>
+                                        <button type="submit" class="btn btn-danger btn-sm btn-xs" onclick="return confirm('Yakin hapus?')">
+                                            <i class="fa fa-trash fa-xs"> Hapus</i>
                                         </button>
                                     </form>
-                                    
                                 </td>
                             </tr>
                             @endforeach

@@ -7,7 +7,7 @@
                 <h3 class="mb-3">Pelanggan</h3>
             <div class="row mb-2 align-items-center">
                 <div class="col-md-6">
-                    <a href="{{ route('admin.pelanggan.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.pelanggan.create') }}" class="btn btn-primary btn-sm">
                         <i class="fa fa-plus"></i> Tambah Pelanggan
                     </a>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <table class="table table-hover table-sm">
+                            <table class="table table-hover table-responsive-sm">
                                 <thead>
                                     <tr>
                                         <th>NO</th>
@@ -50,17 +50,17 @@
                                         </td>
                                         <td class="text-center">
 
-                                            <a href="{{ route('admin.pelanggan.show', $p->id_pelanggan) }}" class="btn btn-sm btn-primary">
-                                                <i class="fa fa-eye"></i>
+                                            <a href="{{ route('admin.pelanggan.show', $p->id_pelanggan) }}" class="btn btn-sm btn-primary btn-xs">
+                                                <i class="fa fa-eye fa-xs"> Detail</i>
                                             </a>
-                                            <a href="{{ route('admin.pelanggan.edit', $p->id_pelanggan) }}" class="btn btn-sm btn-success">
-                                                <i class="fa fa-edit"></i>
+                                            <a href="{{ route('admin.pelanggan.edit', $p->id_pelanggan) }}" class="btn btn-sm btn-success btn-xs">
+                                                <i class="fa fa-edit fa-xs"> Edit</i>
                                             </a>
                                             <form action="{{ route('admin.pelanggan.destroy', $p->id_pelanggan) }}" method="POST" style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus pelanggan ini?')">
-                                                    <i class="fa fa-trash"></i>
+                                                <button type="submit" class="btn btn-sm btn-danger btn-xs" onclick="return confirm('Yakin ingin menghapus pelanggan ini?')">
+                                                    <i class="fa fa-trash fa-xs"> Hapus</i>
                                                 </button>
                                             </form>                                            
                                         </td>

@@ -10,9 +10,7 @@ use App\Http\Controllers\PelangganTagihanController;
 use App\Http\Controllers\PembayaranPelangganController;
 use App\Http\Controllers\PembayaranController;
 
-route::get('/', function () {
-    return view('welcome');
-}); 
+ 
 // Route Admin
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'login']);

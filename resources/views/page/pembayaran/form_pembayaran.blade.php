@@ -41,8 +41,8 @@
                             </select>
                         </div>
 
-                        <a href="{{ route('admin.tagihan') }}" class="btn btn-secondary mt-3">Kembali</a>
-                        <button type="submit" class="btn btn-primary mt-3">Simpan</button>
+                        <a href="{{ route('admin.tagihan') }}" class="btn btn-danger mt-3 btn-sm">Kembali</a>
+                        <button type="submit" class="btn btn-primary mt-3 btn-sm">Simpan</button>
                     </form>
                 </div>
             </div>

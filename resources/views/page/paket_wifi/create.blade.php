@@ -25,9 +25,9 @@
                 <input type="number" name="harga" class="form-control" required>
             </div>
             
-            <div class="d-flex justify-content-end mt-3">
-                <a href="{{ route('admin.paket_wifi') }}" class="btn btn-secondary mr-2">Batal</a>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+            <div class="d-flex justify-content">
+                <a href="{{ route('admin.paket_wifi') }}" class="btn btn-danger mr-2 btn-sm">Batal</a>
+                <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
             </div>
         </form>
     </section>

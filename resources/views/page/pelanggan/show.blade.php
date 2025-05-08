@@ -36,7 +36,7 @@
                     </dl>
 
                     <div class="mt-3">
-                        <a href="{{ route('admin.pelanggan') }}" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ route('admin.pelanggan') }}" class="btn btn-danger btn-sm">Kembali</a>
                     </div>
                 </div>
             </div>

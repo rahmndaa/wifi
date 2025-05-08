@@ -14,7 +14,7 @@
             <div class="card shadow rounded">
                 <div class="card-body table-responsive">
 
-                    <table class="table table-hover">
+                    <table class="table table-hover table-responsive-sm">
                         <thead>
                             <tr>
                                 <th>ID Tagihan</th>
@@ -36,9 +36,12 @@
                                     <td>Rp {{ number_format($p->total_tagihan, 0, ',', '.') }}</td>
                                     <td>{{ ucfirst($p->metode_pembayaran) }}</td>
                                     <td>{{ $p->tanggal_bayar }}</td>
-                                    <td>
+                                    <td class="text-center">
                                         @if ($p->bukti_transfer)
-                                            <a href="{{ Storage::url($p->bukti_transfer) }}" target="_blank" class="btn btn-sm btn-info">Lihat</a>
+                                            <a href="{{ Storage::url($p->bukti_transfer) }}" target="_blank">
+                                                <i class="fas fa-image fa-lg text-info"></i>
+                                            </a>
+                                     
                                         @else
                                             <span class="text-muted">-</span>
                                         @endif

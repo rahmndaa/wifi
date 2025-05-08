@@ -33,12 +33,12 @@
                     </dl>
 
                     <div class="mt-3">
-                        <a href="{{ route('admin.tagihan') }}" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ route('admin.tagihan') }}" class="btn btn-danger btn-sm">Kembali</a>
 
                         @if($tagihan->status == 'belum lunas')
-                        <a href="{{ route('admin.tagihan.pembayaran.form', $tagihan->id_tagihan) }}" class="btn btn-primary">Bayar Tagihan</a>
+                        <a href="{{ route('admin.tagihan.pembayaran.form', $tagihan->id_tagihan) }}" class="btn btn-primary btn-sm">Bayar</a>
                         @elseif ($tagihan->status == 'pending')
-                        <a href="{{ route('admin.tagihan.pembayaran.form', $tagihan->id_tagihan) }}" class="btn btn-primary">Konfirmasi</a>
+                        <a href="{{ route('admin.tagihan.pembayaran.form', $tagihan->id_tagihan) }}" class="btn btn-primary btn-sm">Konfirmasi</a>
                         @endif
                     </div>
 

@@ -64,9 +64,9 @@
                                     </div>
                                 </div>
 
-                                <div class="d-flex justify-content-end mt-3">
-                                    <a href="{{ route('admin.pelanggan') }}" class="btn btn-secondary mr-2">Batal</a>
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                <div class="d-flex justify-content mt-3">
+                                    <a href="{{ route('admin.pelanggan') }}" class="btn btn-danger mr-2 btn-sm">Batal</a>
+                                    <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
                                 </div>
                             </form>
                         </div>

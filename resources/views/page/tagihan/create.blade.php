@@ -46,7 +46,7 @@
                             <label>Total Tagihan</label>
                             <input type="number" name="total_tagihan" class="form-control" required>
                         </div>
-                            <a href="{{ route('admin.tagihan') }}" class="btn btn-secondary">Kembali</a>
+                            <a href="{{ route('admin.tagihan') }}" class="btn btn-danger btn-xs">Kembali</a>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                 </div>

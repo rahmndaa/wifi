@@ -27,7 +27,7 @@
                     </dl>
 
                     <div class="mt-3">
-                        <a href="{{ route('admin.paket_wifi') }}" class="btn btn-secondary">Kembali</a>
+                        <a href="{{ route('admin.paket_wifi') }}" class="btn btn-danger btn-xs">Kembali</a>
                     </div>
                 </div>
             </div>
