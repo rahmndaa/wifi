@@ -1,73 +1,110 @@
 @extends('layouts.admin-master')
 
 @section('content')
-<div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <h3 class="mb-0">Riwayat Pembayaran</h3>
-        </div>
-    </section>
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header">
+      <h3 class="fw-bold mb-3">Riwayat Pembayaran</h3>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="#">
+            <i class="icon-home"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="icon-arrow-right"></i>
+        </li>
+        <li class="nav-item">
+          <a href="#">Riwayat Pembayaran</a>
+        </li>
+      </ul>
+    </div>
 
-    <section class="content">
-        <div class="container-fluid">
+    {{-- Filter --}}
+    <form method="GET" action="{{ route('admin.pembayaran') }}" class="row mb-4">
+      <div class="col-md-2">
+        <select name="tahun" class="form-control">
+          <option value="">Tahun</option>
+          @for ($i = date('Y'); $i >= 2020; $i--)
+            <option value="{{ $i }}" {{ request('tahun') == $i ? 'selected' : '' }}>{{ $i }}</option>
+          @endfor
+        </select>
+      </div>
+      <div class="col-md-2">
+        <select name="bulan" class="form-control">
+          <option value="">Bulan</option>
+          @for ($i = 1; $i <= 12; $i++)
+            <option value="{{ $i }}" {{ request('bulan') == $i ? 'selected' : '' }}>
+              {{ DateTime::createFromFormat('!m', $i)->format('F') }}
+            </option>
+          @endfor
+        </select>
+      </div>
+      <div class="col-md-2">
+        <select name="status" class="form-control">
+          <option value="">Status</option>
+          <option value="lunas" {{ request('status') == 'lunas' ? 'selected' : '' }}>Lunas</option>
+          <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Menunggu</option>
+          <option value="belum lunas" {{ request('status') == 'belum lunas' ? 'selected' : '' }}>Belum Lunas</option>
+        </select>
+      </div>
+      <div class="col-md-1">
+        <button type="submit" class="btn btn-primary">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </form>
 
-            <div class="card shadow rounded">
-                <div class="card-body table-responsive">
-
-                    <table class="table table-hover table-responsive-sm">
-                        <thead>
-                            <tr>
-                                <th>ID Tagihan</th>
-                                <th>Pelanggan</th>
-                                <th>Periode</th>
-                                <th>Total Tagihan</th>
-                                <th>Metode</th>
-                                <th>Tanggal Bayar</th>
-                                <th>Bukti Transfer</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse ($pembayaran as $p)
-                                <tr>
-                                    <td>{{$p->id_tagihan }}</td>
-                                    <td>{{ $p->nama_pelanggan }}</td>
-                                    <td>{{ $p->periode_bulan }}/{{ $p->periode_tahun }}</td>
-                                    <td>Rp {{ number_format($p->total_tagihan, 0, ',', '.') }}</td>
-                                    <td>{{ ucfirst($p->metode_pembayaran) }}</td>
-                                    <td>{{ $p->tanggal_bayar }}</td>
-                                    <td class="text-center">
-                                        @if ($p->bukti_transfer)
-                                            <a href="{{ Storage::url($p->bukti_transfer) }}" target="_blank" class="btn btn-primary btn-xs">
-                                                <i class="fas fa-image fa-lg"></i>
-                                            </a>
-                                     
-                                        @else
-                                            <span class="text-muted">-</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if ($p->status == 'lunas')
-                                            <span class="badge bg-success">Lunas</span>
-                                        @elseif ($p->status == 'pending')
-                                            <span class="badge bg-warning text-white">Menunggu</span>
-                                        @else
-                                            <span class="badge bg-danger">Belum Lunas</span>
-                                        @endif
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="8" class="text-center">Belum ada pembayaran</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
+    {{-- Tabel Pembayaran --}}
+    <div class="card">
+      <div class="card-body table-responsive">
+        <table class="table table-hover table-responsive-sm">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Periode</th>
+              <th>Total</th>
+              <th>Metode</th>
+              <th>Tanggal Bayar</th>
+              <th>Bukti</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($pembayaran as $p)
+            <tr>
+              <td>{{ $p->id_tagihan }}</td>
+              <td>{{ $p->nama_pelanggan }}</td>
+              <td>{{ $p->periode_bulan }}/{{ $p->periode_tahun }}</td>
+              <td>Rp {{ number_format($p->total_tagihan, 0, ',', '.') }}</td>
+              <td>{{ ucfirst($p->metode_pembayaran) }}</td>
+              <td>{{ $p->tanggal_bayar }}</td>
+              <td class="text-center">
+                @if ($p->bukti_transfer)
+                  <a href="{{ Storage::url($p->bukti_transfer) }}" target="_blank" class="btn btn-primary btn-xs">
+                    <i class="fas fa-image fa-lg"></i>
+                  </a>
+                @else
+                  <span class="text-muted">-</span>
+                @endif
+              </td>
+              <td>
+                @if ($p->status == 'lunas')
+                  <span class="badge bg-success">Lunas</span>
+                @elseif ($p->status == 'pending')
+                  <span class="badge bg-warning">Menunggu</span>
+                @else
+                  <span class="badge bg-danger">Belum Lunas</span>
+                @endif
+              </td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {{-- End Tabel --}}
+  </div>
 </div>
 @endsection

@@ -12,7 +12,9 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\KomplainAdminController;
 use App\Http\Controllers\KomplainPelangganController;
 
- 
+Route::get('/', function () {
+    return view('index');
+});
 // Route Admin
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'login']);

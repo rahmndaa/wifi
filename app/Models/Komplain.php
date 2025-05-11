@@ -10,7 +10,7 @@ class Komplain extends Model
     use HasFactory;
 
     protected $table = 'komplain';
-    protected $primaryKey = 'id_komplain'; // Sesuaikan dengan nama kolom primary key di migrasi
+    protected $primaryKey = 'id_komplain'; 
     public $timestamps = false;
 
     protected $fillable = [

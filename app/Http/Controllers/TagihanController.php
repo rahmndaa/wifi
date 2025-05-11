@@ -67,7 +67,7 @@ class TagihanController extends Controller
         if (!session('admin')) {
             return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
         }
-        $tagihan = Tagihan::with('pelanggan')->findOrFail($id);
+        $tagihan = Tagihan::with(['pelanggan', 'pembayaran'])->findOrFail($id);
         return view('page.tagihan.show', compact('tagihan'));
     }
 

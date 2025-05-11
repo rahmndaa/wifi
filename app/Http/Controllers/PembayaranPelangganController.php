@@ -14,6 +14,12 @@ class PembayaranPelangganController extends Controller
             return redirect()->route('pelanggan.login')->withErrors('Silahkan login dahulu.');
         }
         $tagihan = DB::table('tagihan')->where('id_tagihan', $id_tagihan)->first();
+        $tagihan = DB::table('tagihan')
+        ->join('pelanggan', 'tagihan.id_pelanggan', '=', 'pelanggan.id_pelanggan')
+        ->select('tagihan.*', 'pelanggan.nama_pelanggan')
+        ->where('tagihan.id_tagihan', $id_tagihan)
+        ->first();
+
 
         if (!$tagihan || $tagihan->status === 'lunas') {
             return redirect()->route('pelanggan.dashboard')->with('error', 'Tagihan tidak ditemukan atau sudah lunas.');

@@ -8,12 +8,13 @@ use Illuminate\Support\Carbon;
 
 class PembayaranController extends Controller
 {
-    public function index()
+public function index(Request $request)
 {
     if (!session('admin')) {
         return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
     }
-    $pembayaran = DB::table('pembayaran')
+
+    $query = DB::table('pembayaran')
         ->join('tagihan', 'tagihan.id_tagihan', '=', 'pembayaran.id_tagihan')
         ->join('pelanggan', 'pelanggan.id_pelanggan', '=', 'tagihan.id_pelanggan')
         ->select(
@@ -23,12 +24,25 @@ class PembayaranController extends Controller
             'tagihan.total_tagihan',
             'tagihan.status',
             'pelanggan.nama_pelanggan'
-        )
-        ->orderByDesc('pembayaran.tanggal_bayar')
-        ->get();
+        );
+
+    if ($request->filled('tahun')) {
+        $query->where('tagihan.periode_tahun', $request->tahun);
+    }
+
+    if ($request->filled('bulan')) {
+        $query->where('tagihan.periode_bulan', $request->bulan);
+    }
+
+    if ($request->filled('status')) {
+        $query->where('tagihan.status', $request->status);
+    }
+
+    $pembayaran = $query->orderByDesc('pembayaran.tanggal_bayar')->get();
 
     return view('page.pembayaran.index', compact('pembayaran'));
 }
+
 
     public function formPembayaran($id_tagihan)
     {

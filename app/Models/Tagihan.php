@@ -29,6 +29,9 @@ class Tagihan extends Model
     {
         return $this->belongsTo(PaketWifi::class, 'id_paket');
     }
-    
+    public function pembayaran()
+    {
+    return $this->hasOne(\App\Models\Pembayaran::class, 'id_tagihan');
+    }
     
 }

@@ -1,134 +1,168 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Kaiadmin - Bootstrap 5 Admin Dashboard</title>
+    <meta
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+      name="viewport"
+    />
+    <link
+      rel="icon"
+      href="{{ asset('kaiadmin/assets/img/kaiadmin/favicon.ico') }}"
+      type="image/x-icon"
+    />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Fonts and icons -->
+    <script src="{{ asset('kaiadmin/assets/js/plugin/webfont/webfont.min.js') }}"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["{{ asset('kaiadmin/assets/css/fonts.min.css') }}"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
 
-    <title>Aplikasi Sistem Pembayaran Internet</title>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <!-- CSS Files -->
+<link rel="stylesheet" href="{{ asset('kaiadmin/assets/css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('kaiadmin/assets/css/plugins.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('kaiadmin/assets/css/kaiadmin.min.css') }}" />
 
-    <link rel="stylesheet" href="{{ asset('font/fontawesome/css/all.min.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('css/OverlayScrollbars.min.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
-
-
-    <!-- Scripts -->
-    {{-- <script src="{{ mix('js/app.js') }}" defer></script> --}}
-</head>
-
-<body class="hold-transition sidebar-mini layout-fixed">
+<!-- CSS Just for demo purpose, don't include it in your project -->
+<link rel="stylesheet" href="{{ asset('kaiadmin/assets/css/demo.css') }}" />
+  </head>
+  <body>
     <div class="wrapper">
-
-        <div class="preloader flex-column justify-content-center align-items-center">
-        <img src="{{ asset('img/logo-wipaykuu-2.png') }}" width="200"/>
-        </div>
-
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-                <form method="POST" action="{{ route('pelanggan.logout') }}" id="logout-form">
-                    @csrf
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-                    </li>
-                </form>
-                
-            </ul>
-        </nav>
-
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <div class="d-flex justify-content-center">
-                <a href="#" class="brand-link d-block text-center">
-                    <span class="brand-text font-weight-light">
-                        <img src="{{ asset('img/logo-wipaykuu-2.png') }}" width="40"/> <b>Fadillahnet Gladag</b>
-                    </span>
-                </a>
-            </div>      
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar user (optional) -->
-                <div class="user-panel d-flex justify-content-center">
-                    <div class="info">
-                        <a href="#" class="d-block">Hallo, {{ session('pelanggan')->nama_pelanggan ?? '' }}</a>
-                    </div>
-                </div>
-
-                <!-- SidebarSearch Form -->
-                <!--<div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                        </button>
-                    </div>
-                    </div>
-                </div>-->
-
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('pelanggan.dashboard') ? 'active' : '' }}" href="{{ route('pelanggan.dashboard') }}">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>Dasboard</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('pelanggan.komplain') ? 'active' : '' }}" href="{{ route('pelanggan.komplain.index') }}">
-                                <i class="nav-icon fas fa-info"></i>
-                                <p>Pengaduan</p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="dark">
+            <a href="#" class="logo">
+              <img
+                src="{{ asset('kaiadmin/assets/img/logo-wipaykuu-2.png') }}"
+                alt="navbar brand"
+                class="navbar-brand"
+                height="20"
+              />Fadillahnet
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
+              </button>
             </div>
-            <!-- /.sidebar -->
-        </aside>
+            <button class="topbar-toggler more">
+              <i class="gg-more-vertical-alt"></i>
+            </button>
+          </div>
+          <!-- End Logo Header -->
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+           <ul class="nav nav-secondary">
+            <li class="nav-item {{ request()->routeIs('pelanggan.dashboard') ? 'active' : '' }}">
+              <a href="{{ route('pelanggan.dashboard') }}">
+                <i class="fas fa-home"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item {{ request()->routeIs('pelanggan.komplain.index') ? 'active' : '' }}">
+              <a href="{{ route('pelanggan.komplain.index') }}">
+                <i class="fas fa-info"></i>
+                <p>Keluhan</p>
+              </a>
+            </li>
+          </ul>
 
-        @yield('content')
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
 
-        <!--<footer class="main-footer">
-            //<strong>Copyright &copy; 2021 <a href="#">AiNetwork</a>.</strong>//
-        </footer>-->
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
+      <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="dark">
+              <a href="index.html" class="logo">
+                <img
+                  src="kaiadmin/assets/img/kaiadmin/logo_light.svg"
+                  alt="navbar brand"
+                  class="navbar-brand"
+                  height="20"
+                />
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                  <i class="gg-menu-right"></i>
+                </button>
+                <button class="btn btn-toggle sidenav-toggler">
+                  <i class="gg-menu-left"></i>
+                </button>
+              </div>
+              <button class="topbar-toggler more">
+                <i class="gg-more-vertical-alt"></i>
+              </button>
+            </div>
+            <!-- End Logo Header -->
+          </div>
+          <!-- Navbar Header -->
+          <nav
+            class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
+          >
+          </nav>
+          <!-- End Navbar -->
+        </div>
+              @yield('content')
+        </div>
+      </div>
     </div>
+<!-- Core JS Files -->
+<script src="{{ asset('kaiadmin/assets/js/core/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ asset('kaiadmin/assets/js/core/popper.min.js') }}"></script>
+<script src="{{ asset('kaiadmin/assets/js/core/bootstrap.min.js') }}"></script>
 
+<!-- jQuery Scrollbar -->
+<script src="{{ asset('kaiadmin/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
 
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    <!-- overlayScrollbars -->
-    <script src="{{ asset('js/jquery.overlayScrollbars.min.js') }}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{ asset('js/adminlte.min.js') }}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('js/demo.js') }}"></script>
-    
+<!-- Chart JS -->
+<script src="{{ asset('kaiadmin/assets/js/plugin/chart.js/chart.min.js') }}"></script>
 
-</body>
+<!-- jQuery Sparkline -->
+<script src="{{ asset('kaiadmin/assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js') }}"></script>
 
+<!-- Chart Circle -->
+<script src="{{ asset('kaiadmin/assets/js/plugin/chart-circle/circles.min.js') }}"></script>
+
+<!-- Datatables -->
+<script src="{{ asset('kaiadmin/assets/js/plugin/datatables/datatables.min.js') }}"></script>
+
+<!-- Bootstrap Notify -->
+<script src="{{ asset('kaiadmin/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
+
+<!-- jQuery Vector Maps -->
+<script src="{{ asset('kaiadmin/assets/js/plugin/jsvectormap/jsvectormap.min.js') }}"></script>
+<script src="{{ asset('kaiadmin/assets/js/plugin/jsvectormap/world.js') }}"></script>
+
+<!-- Sweet Alert -->
+<script src="{{ asset('kaiadmin/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
+
+<!-- Kaiadmin JS -->
+<script src="{{ asset('kaiadmin/assets/js/kaiadmin.min.js') }}"></script>
+
+  </body>
 </html>
