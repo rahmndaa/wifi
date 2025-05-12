@@ -13,7 +13,7 @@ use App\Http\Controllers\KomplainAdminController;
 use App\Http\Controllers\KomplainPelangganController;
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
 // Route Admin
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');

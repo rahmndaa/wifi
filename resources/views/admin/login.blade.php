@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex flex-col items-center justify-center h-screen bg-gray-100">
-    <img src="{{ asset('img/logo-wipaykuu-2.png') }}" width="200"/>
+    <img src="{{ asset('kaiadmin/assets/img/logo-wipaykuu-2.png') }}" width="200"/>
     <div class="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
         <h3 class="text-lg font-semibold mb-4 text-center text-gray-600">Login Admin</h3>
         <form action="{{ route('admin.login') }}" method="POST">
