@@ -31,6 +31,5 @@ class Pelanggan extends Model
     {
     return $this->hasMany(Komplain::class, 'id_pelanggan', 'id_pelanggan'); 
     }
-
     
 }

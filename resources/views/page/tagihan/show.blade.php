@@ -28,6 +28,12 @@
                             <dt class="col-sm-3">Periode</dt>
                             <dd class="col-sm-9">{{ $tagihan->periode_bulan }}/{{ $tagihan->periode_tahun }}</dd>
 
+                            <dt class="col-sm-3">Metode Pembayaran</dt>
+                            <dd class="col-sm-9">{{ $tagihan->pembayaran->metode_pembayaran ?? '-' }}</dd>
+                            
+                            <dt class="col-sm-3">Tanggal Pembayaran</dt>
+                            <dd class="col-sm-9">{{ $tagihan->pembayaran->tanggal_bayar ?? '-' }}</dd>
+
                             <dt class="col-sm-3">Paket</dt>
                             <dd class="col-sm-9">{{ $tagihan->pelanggan->paketWifi->nama_paket ?? '-' }}</dd>
 
@@ -55,15 +61,16 @@
                             @endif
                         </dl>
 
-                        <div class="d-flex justify-content-start mt-4">
-                            <a href="{{ route('admin.tagihan') }}" class="btn btn-danger btn-sm">Kembali</a>
+                            <div class="d-flex justify-content-start mt-4">
+                                <a href="{{ route('admin.tagihan') }}" class="btn btn-danger btn-sm me-2">Kembali</a>
 
-                            @if($tagihan->status == 'belum lunas')
-                            <a href="{{ route('admin.tagihan.pembayaran.form', $tagihan->id_tagihan) }}" class="btn btn-primary btn-sm">Bayar</a>
-                            @elseif ($tagihan->status == 'pending')
-                            <a href="{{ route('admin.tagihan.pembayaran.form', $tagihan->id_tagihan) }}" class="btn btn-primary btn-sm">Konfirmasi</a>
-                            @endif
-                        </div>
+                                @if($tagihan->status == 'belum lunas')
+                                    <a href="{{ route('admin.tagihan.pembayaran.form', $tagihan->id_tagihan) }}" class="btn btn-primary btn-sm">Bayar</a>
+                                @elseif ($tagihan->status == 'pending')
+                                    <a href="{{ route('admin.tagihan.pembayaran.form', $tagihan->id_tagihan) }}" class="btn btn-primary btn-sm">Konfirmasi</a>
+                                @endif
+                            </div>
+
                     </div>
                 </div>
             </div>

@@ -43,14 +43,13 @@
                                 <input type="number" name="periode_bulan" class="form-control" value="{{ $tagihan->periode_bulan }}" required>
                             </div>
 
-                            <div class="form-group mb-3">
+                            {{-- <div class="form-group mb-3">
                                 <label>Status</label>
                                 <select name="status" class="form-control" required>
                                     <option value="belum lunas" {{ $tagihan->status == 'belum lunas' ? 'selected' : '' }}>Belum Lunas</option>
                                     <option value="lunas" {{ $tagihan->status == 'lunas' ? 'selected' : '' }}>Lunas</option>
                                 </select>
-                            </div>
-
+                            </div> --}}
                             <div class="form-group mb-3">
                                 <label>Total Tagihan</label>
                                 <input type="number" name="total_tagihan" class="form-control" value="{{ $tagihan->total_tagihan }}" required>

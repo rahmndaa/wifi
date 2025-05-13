@@ -73,12 +73,21 @@ public function index(Request $request)
         ]);
 
         // Simpan pembayaran ke tabel pembayaran
-        DB::table('pembayaran')->insert([
-            'id_tagihan' => $id_tagihan,
-            'metode_pembayaran' => $request->metode_pembayaran,
-            'bukti_transfer' => null,
-            'tanggal_bayar' => Carbon::now(),
-        ]);
+        $pembayaran = DB::table('pembayaran')->where('id_tagihan', $id_tagihan)->first();
+
+        if ($pembayaran) {
+            DB::table('pembayaran')->where('id_tagihan', $id_tagihan)->update([
+                'metode_pembayaran' => $request->metode_pembayaran,
+                'tanggal_bayar' => Carbon::now(),
+            ]);
+        } else {
+            DB::table('pembayaran')->insert([
+                'id_tagihan' => $id_tagihan,
+                'metode_pembayaran' => $request->metode_pembayaran,
+                'bukti_transfer' => null,
+                'tanggal_bayar' => Carbon::now(),
+            ]);
+        }
 
         // Ubah status tagihan menjadi "lunas"
         DB::table('tagihan')->where('id_tagihan', $id_tagihan)->update([

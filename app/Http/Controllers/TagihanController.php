@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PaketWifi;
 use App\Models\Tagihan;
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
@@ -41,7 +42,9 @@ class TagihanController extends Controller
             return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
         }
         $pelanggan = Pelanggan::all();
-        return view('page.tagihan.create', compact('pelanggan'));
+        $paket = PaketWifi::all();
+        return view('page.tagihan.create', compact('pelanggan', 'paket'));
+
     }
 
     public function store(Request $request)

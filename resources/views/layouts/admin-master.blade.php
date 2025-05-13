@@ -51,11 +51,11 @@
           <div class="logo-header" data-background-color="dark">
             <a href="index.html" class="logo">
               <img
-                src="{{ asset('kaiadmin/assets/img/logo-wipaykuu-2.png') }}"
+                src="{{ asset('kaiadmin/assets/img/logo-fdl-white.png') }}"
                 alt="navbar brand"
                 class="navbar-brand"
-                height="20"
-              />  Fadillahnet
+                width="100"
+              /> 
             </a>
             <div class="nav-toggle">
               <button class="btn btn-toggle toggle-sidebar">
@@ -164,10 +164,31 @@
             <!-- End Logo Header -->
           </div>
           <!-- Navbar Header -->
-          <nav
-            class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
-          >
-          </nav>
+            <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+                <div class="container-fluid">
+                    <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">
+                                Hallo, <strong>{{ session('admin')->nama_admin ?? 'Admin' }}</strong>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animated fadeIn" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <form method="POST" action="{{ route('admin.logout') }}" id="logout-form">
+                                        @csrf
+                                        <a class="dropdown-item" href="#"
+                                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
           <!-- End Navbar -->
         </div>
               @yield('content')

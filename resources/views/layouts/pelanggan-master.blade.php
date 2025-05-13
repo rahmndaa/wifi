@@ -121,10 +121,29 @@
             <!-- End Logo Header -->
           </div>
           <!-- Navbar Header -->
-          <nav
-            class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
-          >
-          </nav>
+            <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+                <div class="container-fluid">
+                    <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                              data-bs-toggle="dropdown" aria-expanded="false">
+                                Hallo, <strong>{{ session('pelanggan')->nama_pelanggan ?? 'Pelanggan' }}</strong>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animated fadeIn" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <form method="POST" action="{{ route('pelanggan.logout') }}" id="logout-form">
+                                        @csrf
+                                        <a class="dropdown-item" href="#"
+                                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
           <!-- End Navbar -->
         </div>
               @yield('content')
