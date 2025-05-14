@@ -19,6 +19,7 @@ class Pelanggan extends Model
         'username', 
         'password',
         'no_whatsapp', 
+        'alamat',
         'tanggal_gabung', 
         'status_pelanggan'
     ];
@@ -29,7 +30,11 @@ class Pelanggan extends Model
     }
     public function komplain()
     {
-    return $this->hasMany(Komplain::class, 'id_pelanggan', 'id_pelanggan'); 
+        return $this->hasMany(Komplain::class, 'id_pelanggan', 'id_pelanggan'); 
     }
-    
+    public function aset()
+    {
+        return $this->hasMany(Aset::class, 'id_pelanggan', 'id_pelanggan');
+    }
+
 }

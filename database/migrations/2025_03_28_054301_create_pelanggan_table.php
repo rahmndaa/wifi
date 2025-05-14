@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('password')->notNull();
             $table->string('no_whatsapp')->notNull();
+            $table->string('alamat')->notNull();
             $table->date('tanggal_gabung')->notNull();
             $table->enum('status_pelanggan', ['aktif', 'arsip'])->notNull();
         });

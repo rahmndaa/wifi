@@ -11,6 +11,7 @@ use App\Http\Controllers\PembayaranPelangganController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\KomplainAdminController;
 use App\Http\Controllers\KomplainPelangganController;
+use App\Http\Controllers\AsetController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -58,12 +59,23 @@ Route::get('/admin/dashboard', [AdminAuthController::class, 'dashboard'])->name(
     Route::post('/admin/tagihan/{id}/pembayaran', [PembayaranController::class, 'uploadPembayaran'])->name('admin.tagihan.pembayaran');
     Route::get('/admin/pembayaran', [PembayaranController::class, 'index'])->name('admin.pembayaran');
     
+    // Komplain (Admin)
     Route::get('/admin/komplain', [KomplainAdminController::class, 'index'])->name('admin.komplain.index');
     Route::get('/admin/komplain/{id}', [KomplainAdminController::class, 'show'])->name('admin.komplain.show');
     Route::get('/admin/komplain/{id}/update-status', [KomplainAdminController::class, 'updateStatus'])->name('admin.komplain.updateStatus');
     Route::put('/admin/komplain/{id}/update-status', [KomplainAdminController::class, 'updateStatus'])->name('admin.komplain.updateStatus');
     Route::get('/admin/komplain/{id}/balas', [KomplainAdminController::class, 'formBalas'])->name('admin.komplain.balas.form');
     Route::post('/admin/komplain/{id}/balas', [KomplainAdminController::class, 'kirimBalasan'])->name('admin.komplain.balas.kirim');
+
+    // Aset (Admin)
+    Route::get('/admin/aset', [AsetController::class, 'index'])->name('admin.aset');
+    Route::get('/admin/aset/create', [AsetController::class, 'create'])->name('admin.aset.create');
+    Route::post('/admin/aset', [AsetController::class, 'store'])->name('admin.aset.store');
+    Route::get('/admin/aset/{id}', [AsetController::class, 'show'])->name('admin.aset.show');
+    Route::get('/admin/aset/{id}/edit', [AsetController::class, 'edit'])->name('admin.aset.edit');
+    Route::put('/admin/aset/{id}', [AsetController::class, 'update'])->name('admin.aset.update');
+    Route::delete('/admin/aset/{id}', [AsetController::class, 'destroy'])->name('admin.aset.destroy');
+
 
 // Route pelanggan
 Route::get('/pelanggan/login', [PelangganAuthController::class, 'showLoginForm'])->name('pelanggan.login');
