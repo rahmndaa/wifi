@@ -21,7 +21,7 @@
                     <dd class="col-sm-9">{{ \Carbon\Carbon::create()->month($tagihan->periode_bulan)->format('F') }} {{ $tagihan->periode_tahun }}</dd>
 
                     <dt class="col-sm-3">Total Tagihan</dt>
-                    <dd class="col-sm-9 text-danger">Rp {{ number_format($tagihan->total_tagihan, 0, ',', '.') }}</dd>
+                    <dd class="col-sm-9 text-danger fw-bold">Rp {{ number_format($tagihan->total_tagihan, 0, ',', '.') }}</dd>
                 </dl>
 
                 <div class="alert alert-primary rounded shadow-sm mb-4">

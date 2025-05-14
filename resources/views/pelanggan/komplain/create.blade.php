@@ -36,8 +36,8 @@
                             </div>
 
                             <div class="d-flex justify-content-start mt-4">
-                                <button type="submit" class="btn btn-success btn-sm">Kirim</button>
-                                <a href="{{ route('pelanggan.dashboard') }}" class="btn btn-danger btn-sm ms-2">Batal</a>
+                                <a href="{{ route('pelanggan.dashboard') }}" class="btn btn-danger btn-sm me-2">Batal</a>
+                                <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
                             </div>
                         </form>
                     </div>

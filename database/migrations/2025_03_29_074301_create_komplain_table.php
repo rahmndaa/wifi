@@ -14,9 +14,9 @@ return new class extends Migration
             $table->id('id_komplain');
             $table->foreignId('id_pelanggan')->constrained('pelanggan','id_pelanggan')->onDelete('cascade');
             $table->text('deskripsi')->notNull();
-            $table->date('tanggal_komplain')->notNull();
+            $table->timestamp('tanggal_komplain')->notNull();
             $table->enum('status', ['menunggu', 'proses', 'selesai'])->notNull();
-            $table->date('tanggal_komplain_selesai')->nullable();
+            $table->timestamp('tanggal_komplain_selesai')->nullable();
             $table->string('bukti_komplain')->nullable();
             $table->text('balasan_admin')->nullable();
         });

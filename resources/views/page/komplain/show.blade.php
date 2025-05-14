@@ -35,8 +35,19 @@
                         @endif
                     </dd>
 
-                    <dt class="col-sm-3">Tanggal Komplain</dt>
+                    <dt class="col-sm-3">Dibuat</dt>
                     <dd class="col-sm-9">{{ $komplain->tanggal_komplain }}</dd>
+                    
+                    <dt class="col-sm-3">Selesai</dt>
+                    <dd class="col-sm-9">{{ $komplain->tanggal_komplain }}</dd>
+
+                    <dt class="col-sm-3">Balasan Admin</dt>
+                    <dd class="col-sm-9">
+                        @if ($komplain->balasan_admin)
+                            {{ $komplain->balasan_admin }}
+                        @else
+                            -
+                        @endif
 
                     @if($komplain->bukti_komplain)
                     <dt class="col-sm-3">Bukti Komplain</dt>
