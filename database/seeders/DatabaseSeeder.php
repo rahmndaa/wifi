@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             TagihanSeeder::class,
             PembayaranSeeder::class,
             KomplainSeeder::class,
+            AsetSeeder::class,
         ]);
     }
 }

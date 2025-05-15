@@ -34,16 +34,16 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group mb-3">
+                                <label>Periode Bulan</label>
+                                <input type="number" name="periode_bulan" class="form-control" required>
+                            </div>
 
                             <div class="form-group mb-3">
                                 <label>Periode Tahun</label>
                                 <input type="number" name="periode_tahun" class="form-control" required>
                             </div>
 
-                            <div class="form-group mb-3">
-                                <label>Periode Bulan</label>
-                                <input type="number" name="periode_bulan" class="form-control" required>
-                            </div>
 
                             <div class="form-group mb-3">
                                 <label>Status</label>
@@ -51,11 +51,6 @@
                                     <option value="belum lunas">Belum Lunas</option>
                                     <option value="lunas">Lunas</option>
                                 </select>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label>Total Tagihan</label>
-                                <input type="number" name="total_tagihan" class="form-control" required>
                             </div>
 
                             <div class="d-flex justify-content-start mt-3">

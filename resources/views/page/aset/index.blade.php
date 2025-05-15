@@ -69,7 +69,7 @@
                                     <span class="badge bg-danger">Rusak</span>
                                 @endif
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <div class="form-button-action">
                                     <a href="{{ route('admin.aset.show', $a->id_aset) }}" class="btn btn-link btn-primary btn-sm" data-bs-toggle="tooltip" title="Detail Aset">
                                         <i class="fa fa-eye fa-lg"></i>

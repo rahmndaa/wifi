@@ -18,7 +18,7 @@
           <div class="card-body">
             <div class="row align-items-center">
               <div class="col-icon">
-                <div class="icon-big text-center icon-info bubble-shadow-small">
+                <div class="icon-big text-center icon-primary bubble-shadow-small">
                   <i class="fas fa-wifi"></i>
                 </div>
               </div>
@@ -101,7 +101,7 @@
         <div class="row align-items-center">
           <div class="col-icon">
             <div class="icon-big text-center icon-primary bubble-shadow-small">
-              <i class="fas fa-boxes"></i>
+              <i class="fas fa-box"></i>
             </div>
           </div>
           <div class="col col-stats ms-3 ms-sm-0">
@@ -120,7 +120,7 @@
     <div class="card-body">
       <div class="row align-items-center">
         <div class="col-icon">
-          <div class="icon-big text-center icon-info bubble-shadow-small">
+          <div class="icon-big text-center icon-success bubble-shadow-small">
             <i class="fas fa-clipboard-check"></i>
           </div>
         </div>
@@ -141,7 +141,7 @@
       <div class="card-body">
         <div class="row align-items-center">
           <div class="col-icon">
-            <div class="icon-big text-center icon-success bubble-shadow-small">
+            <div class="icon-big text-center icon-warning bubble-shadow-small">
               <i class="fas fa-check-circle"></i>
             </div>
           </div>

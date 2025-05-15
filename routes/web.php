@@ -83,7 +83,7 @@ Route::post('/pelanggan/login', [PelangganAuthController::class, 'login']);
 Route::post('pelanggan/logout', [PelangganAuthController::class, 'logout'])->name('pelanggan.logout');
     
     // Tagihan (Pelanggan)
-    Route::get('', [PelangganTagihanController::class, 'index'])->name('pelanggan.dashboard');
+    Route::get('/pelanggan/dashboard', [PelangganTagihanController::class, 'index'])->name('pelanggan.dashboard');
     Route::get('/pelanggan/pembayaran/{id}', [PembayaranPelangganController::class, 'formPembayaran'])->name('pelanggan.pembayaran.form');
     Route::post('/pelanggan/pembayaran/{id}', [PembayaranPelangganController::class, 'prosesPembayaran'])->name('pelanggan.pembayaran.proses');
 
