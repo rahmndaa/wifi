@@ -22,7 +22,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Tanggal</th>
+                                    <th>Dibuat</th>
                                     <th>Deskripsi</th>
                                     <th>Status</th>
                                     <th>Bukti</th>

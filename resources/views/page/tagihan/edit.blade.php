@@ -32,28 +32,16 @@
                                     @endforeach
                                 </select>
                             </div>
-
-                            <div class="form-group mb-3">
-                                <label>Periode Tahun</label>
-                                <input type="number" name="periode_tahun" class="form-control" value="{{ $tagihan->periode_tahun }}" required>
-                            </div>
-
                             <div class="form-group mb-3">
                                 <label>Periode Bulan</label>
                                 <input type="number" name="periode_bulan" class="form-control" value="{{ $tagihan->periode_bulan }}" required>
                             </div>
 
-                            {{-- <div class="form-group mb-3">
-                                <label>Status</label>
-                                <select name="status" class="form-control" required>
-                                    <option value="belum lunas" {{ $tagihan->status == 'belum lunas' ? 'selected' : '' }}>Belum Lunas</option>
-                                    <option value="lunas" {{ $tagihan->status == 'lunas' ? 'selected' : '' }}>Lunas</option>
-                                </select>
-                            </div> --}}
                             <div class="form-group mb-3">
-                                <label>Total Tagihan</label>
-                                <input type="number" name="total_tagihan" class="form-control" value="{{ $tagihan->total_tagihan }}" required>
+                                <label>Periode Tahun</label>
+                                <input type="number" name="periode_tahun" class="form-control" value="{{ $tagihan->periode_tahun }}" required>
                             </div>
+                            
 
                             <div class="d-flex justify-content-start mt-4">
                                 <a href="{{ route('admin.tagihan') }}" class="btn btn-danger btn-sm me-2">Kembali</a>

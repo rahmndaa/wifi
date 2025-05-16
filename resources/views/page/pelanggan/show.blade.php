@@ -31,6 +31,9 @@
                             <dt class="col-sm-3">No WhatsApp</dt>
                             <dd class="col-sm-9">{{ $pelanggan->no_whatsapp }}</dd>
 
+                            <dt class="col-sm-3">Alamat</dt>
+                            <dd class="col-sm-9">{{ $pelanggan->alamat }}</dd>
+
                             <dt class="col-sm-3">Tanggal Gabung</dt>
                             <dd class="col-sm-9">{{ $pelanggan->tanggal_gabung }}</dd>
 
@@ -38,7 +41,14 @@
                             <dd class="col-sm-9">{{ $pelanggan->paketWifi->nama_paket ?? '-' }}</dd>
 
                             <dt class="col-sm-3">Status</dt>
-                            <dd class="col-sm-9">{{ $pelanggan->status_pelanggan }}</dd>
+                            <dd class="col-sm-9">
+                                @if($pelanggan->status_pelanggan == 'aktif')
+                                    <span class="badge bg-success">Aktif</span>
+                                @elseif($pelanggan->status_pelanggan == 'arsip')
+                                    <span class="badge bg-danger">Arsip</span>
+                                @endif
+                            </dd>
+
                         </dl>
 
                         <div class="d-flex justify-content-start mt-4">

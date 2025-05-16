@@ -75,7 +75,6 @@ class KomplainAdminController extends Controller
 
         $komplain = Komplain::findOrFail($id);
         $komplain->balasan_admin = $request->balasan_admin;
-        $komplain->status = 'selesai';
         $komplain->tanggal_komplain_selesai = now();
         $komplain->save();
 

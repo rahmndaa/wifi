@@ -116,8 +116,8 @@
                 </a>
               </li>
 
-              <li class="nav-item {{ request()->is('admin/aset*') ? 'active' : '' }}">
-                <a href="#">
+              <li class="nav-item {{ request()->is('admin.aset') ? 'active' : '' }}">
+                <a href="{{ route('admin.aset') }}">
                   <i class="fas fa-box"></i>
                   <p>Aset</p>
                 </a>

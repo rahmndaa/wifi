@@ -16,7 +16,7 @@
         <form method="GET" action="{{ route('admin.komplain.index') }}" class="row mb-3">
             <div class="col-md-2">
                 <select name="status" class="form-control">
-                    <option value="">Semua Status</option>
+                    <option value="">Status</option>
                     <option value="menunggu" {{ request('status') == 'menunggu' ? 'selected' : '' }}>Menunggu</option>
                     <option value="proses" {{ request('status') == 'proses' ? 'selected' : '' }}>Diproses</option>
                     <option value="selesai" {{ request('status') == 'selesai' ? 'selected' : '' }}>Selesai</option>
@@ -39,8 +39,8 @@
                             <th>Deskripsi</th>
                             <th>Status</th>
                             <th>Bukti</th>
+                            <th>Dibalas</th>
                             <th>Dibuat</th>
-                            <th>Selesai</th>
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -68,21 +68,19 @@
                                     <span class="text-muted">-</span>
                                 @endif
                             </td>
+                            <td>{{ $k->balasan_admin}}</td>
                             <td>{{ $k->tanggal_komplain }}</td>
-                            <td>{{ $k->tanggal_komplain_selesai ?? '-' }}</td>
                             <td>
                                 <div class="form-button-action">
                                     <a href="{{ route('admin.komplain.show', $k->id_komplain) }}" class="btn btn-link btn-primary btn-sm" data-bs-toggle="tooltip" title="Lihat Komplain">
                                         <i class="fa fa-eye fa-lg"></i>
                                     </a>
-                                    @if($k->status != 'selesai')
+
                                     <a href="{{ route('admin.komplain.balas.form', $k->id_komplain) }}" class="btn btn-link btn-success btn-sm" data-bs-toggle="tooltip" title="Balas Komplain">
                                         <i class="fa fa-reply fa-lg"></i>
                                     </a>
-                                    @endif
                                 </div>
                             </td>
-
                         </tr>
                         @endforeach
                     </tbody>

@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pelanggan;
 use App\Models\PaketWifi;
-use Midtrans\Snap;
-use Midtrans\Config;
 
 class PelangganController extends Controller
 {

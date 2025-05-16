@@ -13,8 +13,11 @@ class KomplainPelangganController extends Controller
         if (!session('pelanggan')) {
             return redirect()->route('pelanggan.login')->withErrors('Silahkan login dahulu.');
         }
+
         $id_pelanggan = session('pelanggan')->id_pelanggan;
-        $komplains = Komplain::where('id_pelanggan', $id_pelanggan)->latest('tanggal_komplain')->get();
+        $komplains = Komplain::where('id_pelanggan', $id_pelanggan)
+            ->latest('tanggal_komplain')
+            ->get();
 
         return view('pelanggan.komplain.index', compact('komplains'));
     }
@@ -24,6 +27,7 @@ class KomplainPelangganController extends Controller
         if (!session('pelanggan')) {
             return redirect()->route('pelanggan.login')->withErrors('Silahkan login dahulu.');
         }
+
         return view('pelanggan.komplain.create');
     }
 
@@ -46,7 +50,7 @@ class KomplainPelangganController extends Controller
         Komplain::create([
             'id_pelanggan' => session('pelanggan')->id_pelanggan,
             'deskripsi' => $request->deskripsi,
-            'tanggal_komplain' => now()->format('Y-m-d'),
+            'tanggal_komplain' => now(), // simpan timestamp lengkap
             'status' => 'menunggu',
             'bukti_komplain' => $bukti,
         ]);

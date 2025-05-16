@@ -38,7 +38,7 @@
                             <dd class="col-sm-9">{{ $tagihan->pelanggan->paketWifi->nama_paket ?? '-' }}</dd>
 
                             <dt class="col-sm-3">Total Tagihan</dt>
-                            <dd class="col-sm-9">Rp {{ number_format($tagihan->total_tagihan, 0, ',', '.') }}</dd>
+                            <dd class="col-sm-9">Rp {{ number_format($tagihan->pelanggan->paketwifi->harga, 0, ',', '.') }}</dd>
 
                             <dt class="col-sm-3">Status</dt>
                             <dd class="col-sm-9">
