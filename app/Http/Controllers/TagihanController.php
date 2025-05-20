@@ -95,7 +95,6 @@ class TagihanController extends Controller
             'id_pelanggan' => 'required',
             'periode_tahun' => 'required',
             'periode_bulan' => 'required',
-            'status' => 'required',
             'total_tagihan' => 'required',
         ]);
 
