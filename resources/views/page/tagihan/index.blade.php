@@ -96,7 +96,7 @@
               <td>{{ $t->pelanggan->nama_pelanggan }}</td>
               <td>{{ $t->periode_bulan }}/{{ $t->periode_tahun }}</td>
               <td>{{ $t->pelanggan->paketWifi->nama_paket ?? '-' }}</td>
-              <td>Rp {{ number_format($t->pelanggan->paketwifi->harga, 0, ',', '.') }}</td>
+             <td>Rp {{ number_format($t->total_tagihan, 0, ',', '.') }}</td>
               <td>
                 @if ($t->status == 'lunas')
                   <span class="badge bg-success">Lunas</span>
