@@ -41,7 +41,10 @@
                                 <label>Periode Tahun</label>
                                 <input type="number" name="periode_tahun" class="form-control" value="{{ $tagihan->periode_tahun }}" required>
                             </div>
-                            
+                            <div class="form-group mb-3">
+                                <label>Total Tagihan</label>
+                                <input type="number" name="total_tagihan" class="form-control" value="{{ $tagihan->total_tagihan }}" required>
+                            </div>
 
                             <div class="d-flex justify-content-start mt-4">
                                 <a href="{{ route('admin.tagihan') }}" class="btn btn-danger btn-sm me-2">Kembali</a>

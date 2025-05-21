@@ -57,6 +57,7 @@ class TagihanController extends Controller
             'periode_tahun' => 'required',
             'periode_bulan' => 'required',
             'status' => 'required',
+            'total_tagihan' => 'required',
         ]);
 
         Tagihan::create($request->all());
@@ -94,7 +95,7 @@ class TagihanController extends Controller
             'id_pelanggan' => 'required',
             'periode_tahun' => 'required',
             'periode_bulan' => 'required',
-            'status' => 'required',
+            'total_tagihan' => 'required',
         ]);
 
         $tagihan->update($request->all());
@@ -138,6 +139,7 @@ class TagihanController extends Controller
                     'periode_tahun' => $periode_tahun,
                     'periode_bulan' => $periode_bulan,
                     'status' => 'belum lunas',
+                    'total_tagihan' => $p->harga,
                 ]);
             }
         }

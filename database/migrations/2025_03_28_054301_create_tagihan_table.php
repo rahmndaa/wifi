@@ -16,7 +16,7 @@ return new class extends Migration
             $table->year('periode_tahun')->notNull();
             $table->integer('periode_bulan')->notNull();
             $table->enum('status', ['lunas', 'pending','belum lunas'])->notNull();
-            // $table->decimal('total_tagihan', 10, 2)->notNull();
+            $table->decimal('total_tagihan', 10, 2)->notNull();
         });
     }
 

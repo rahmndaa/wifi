@@ -76,7 +76,6 @@ Route::get('/admin/dashboard', [AdminAuthController::class, 'dashboard'])->name(
     Route::put('/admin/aset/{id}', [AsetController::class, 'update'])->name('admin.aset.update');
     Route::delete('/admin/aset/{id}', [AsetController::class, 'destroy'])->name('admin.aset.destroy');
 
-
 // Route pelanggan
 Route::get('/pelanggan/login', [PelangganAuthController::class, 'showLoginForm'])->name('pelanggan.login');
 Route::post('/pelanggan/login', [PelangganAuthController::class, 'login']);

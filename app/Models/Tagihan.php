@@ -18,6 +18,7 @@ class Tagihan extends Model
         'periode_tahun',
         'periode_bulan',
         'status',
+        'total_tagihan',
     ];
 
     public function pelanggan()
