@@ -72,11 +72,11 @@
                             <td>{{ $k->tanggal_komplain }}</td>
                             <td>
                                 <div class="form-button-action">
-                                    <a href="{{ route('admin.komplain.show', $k->id_komplain) }}" class="btn btn-link btn-primary btn-sm" data-bs-toggle="tooltip" title="Lihat Komplain">
+                                    <a href="{{ route('admin.komplain.show', ['id' => $k->id_komplain]) }}" class="btn btn-link btn-primary btn-sm" data-bs-toggle="tooltip" title="Lihat Komplain">
                                         <i class="fa fa-eye fa-lg"></i>
                                     </a>
 
-                                    <a href="{{ route('admin.komplain.balas.form', $k->id_komplain) }}" class="btn btn-link btn-success btn-sm" data-bs-toggle="tooltip" title="Balas Komplain">
+                                    <a href="{{ route('admin.komplain.balas.form', ['id' => $k->id_komplain]) }}" class="btn btn-link btn-success btn-sm" data-bs-toggle="tooltip" title="Balas Komplain">
                                         <i class="fa fa-reply fa-lg"></i>
                                     </a>
                                 </div>
