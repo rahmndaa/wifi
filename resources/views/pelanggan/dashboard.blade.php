@@ -124,7 +124,7 @@
               <td>{{ $pembayaran->metode_pembayaran ?? '-' }}</td>
               <td>
                 @if ($pembayaran && $pembayaran->bukti_transfer)
-                  <a href="{{ Storage::url($pembayaran->bukti_transfer) }}" target="_blank" class="btn btn-primary btn-xs">
+                  <a href="{{ Storage::url($pembayaran->bukti_transfer) }}" target="_blank" class="btn btn-primary btn-xs"data-bs-toggle="tooltip" title="Bukti Transfer">
                     <i class="fas fa-image fa-lg"></i>
                   </a>
                 @else
@@ -133,9 +133,11 @@
               </td>
               <td>
                 @if ($t->status == 'belum lunas')
-                  <a href="{{ route('pelanggan.pembayaran.form', $t->id_tagihan) }}" class="btn btn-success btn-xs">
+                <div class="form-button-action">
+                  <a href="{{ route('pelanggan.pembayaran.form', $t->id_tagihan) }}" class="btn btn-success btn-xs"data-bs-toggle="tooltip" title="Bayar Tagihan">
                     <i class="fa fa-credit-card fa-lg"></i>
                   </a>
+                </div>
                 @else
                   -
                 @endif
