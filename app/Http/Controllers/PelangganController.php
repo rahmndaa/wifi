@@ -46,7 +46,7 @@ class PelangganController extends Controller
         }
         $request->merge(['password' => bcrypt($request->password)]);
         Pelanggan::create($request->all());
-        return redirect()->route('admin.pelanggan');
+        return redirect()->route('admin.pelanggan')->with('success', 'Data berhasil ditambahkan!');
     }
 
     public function edit($id)
@@ -71,7 +71,7 @@ class PelangganController extends Controller
             $request->request->remove('password');
         }
         $pelanggan->update($request->all());
-        return redirect()->route('admin.pelanggan');
+        return redirect()->route('admin.pelanggan')->with('success', 'Data berhasil di ubah!');
     }
 
     public function destroy($id)
@@ -80,6 +80,6 @@ class PelangganController extends Controller
             return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
         }
         Pelanggan::destroy($id);
-        return redirect()->route('admin.pelanggan');
+        return redirect()->route('admin.pelanggan')->with('success', 'Data berhasil dihapus!');
     }
 }

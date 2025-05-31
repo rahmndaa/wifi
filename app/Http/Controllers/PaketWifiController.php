@@ -43,7 +43,7 @@ class PaketWifiController extends Controller
             return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
         }
         PaketWifi::create($request->all());
-        return redirect()->route('admin.paket_wifi');
+        return redirect()->route('admin.paket_wifi')->with('success', 'Data berhasil ditambahkan!');
     }
 
     public function edit($id)
@@ -62,7 +62,7 @@ class PaketWifiController extends Controller
         }
         $paket = PaketWifi::findOrFail($id);
         $paket->update($request->all());
-        return redirect()->route('admin.paket_wifi');
+        return redirect()->route('admin.paket_wifi')->with('success', 'Data berhasil ubah!');
     }
 
     public function destroy($id)
@@ -71,6 +71,6 @@ class PaketWifiController extends Controller
             return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
         }
         PaketWifi::destroy($id);
-        return redirect()->route('admin.paket_wifi');
+        return redirect()->route('admin.paket_wifi')->with('success', 'Data berhasil dihapus!');
     }
 }

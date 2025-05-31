@@ -39,7 +39,7 @@
                     <dd class="col-sm-9">{{ $komplain->tanggal_komplain }}</dd>
                     
                     <dt class="col-sm-3">Selesai</dt>
-                    <dd class="col-sm-9">{{ $komplain->tanggal_komplain }}</dd>
+                    <dd class="col-sm-9">{{ $komplain->tanggal_komplain_selesai }}</dd>
 
                     <dt class="col-sm-3">Balasan Admin</dt>
                     <dd class="col-sm-9">

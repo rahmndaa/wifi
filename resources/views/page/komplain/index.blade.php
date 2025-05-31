@@ -38,7 +38,6 @@
                             <th>Nama</th>
                             <th>Deskripsi</th>
                             <th>Status</th>
-                            <th>Bukti</th>
                             <th>Dibalas</th>
                             <th>Dibuat</th>
                             <th class="text-center">Aksi</th>
@@ -57,15 +56,6 @@
                                     <span class="badge bg-primary">Diproses</span>
                                 @else
                                     <span class="badge bg-success">Selesai</span>
-                                @endif
-                            </td>
-                            <td class="text-center">
-                                @if ($k->bukti_komplain)
-                                    <a href="{{ Storage::url($k->bukti_komplain) }}" target="_blank" class="btn btn-primary btn-xs">
-                                        <i class="fas fa-image fa-lg"></i>
-                                    </a>
-                                @else
-                                    <span class="text-muted">-</span>
                                 @endif
                             </td>
                             <td>{{ $k->balasan_admin}}</td>
