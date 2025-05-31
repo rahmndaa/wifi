@@ -31,8 +31,7 @@
                             <dt class="col-sm-3">Paket</dt>
                             <dd class="col-sm-9">{{ $tagihan->nama_paket ?? '-' }}</dd>
 
-                            <dt class="col-sm-3">Total Tagihan</dt>
-                            <dd class="col-sm-9">Rp {{ number_format($tagihan->total_tagihan, 0, ',', '.') }}</dd>
+                           
                         </dl>
 
                         <form action="{{ route('admin.tagihan.pembayaran', $tagihan->id_tagihan) }}" method="POST">

@@ -49,14 +49,19 @@
         <div class="sidebar-logo">
           <!-- Logo Header -->
           <div class="logo-header" data-background-color="dark">
+
+
             <a href="index.html" class="logo">
+
               <img
                 src="{{ asset('kaiadmin/assets/img/logo-fdl-white.png') }}"
                 alt="navbar brand"
                 class="navbar-brand"
                 width="100"
               /> 
+
             </a>
+ 
             <div class="nav-toggle">
               <button class="btn btn-toggle toggle-sidebar">
                 <i class="gg-menu-right"></i>
@@ -181,32 +186,10 @@
 <script src="{{ asset('kaiadmin/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Kaiadmin JS -->
 <script src="{{ asset('kaiadmin/assets/js/kaiadmin.min.js') }}"></script>
-
-{{-- sweet alert --}}
-@if (session('success'))
-<script>
-    Swal.fire({
-        icon: 'success',
-        title: 'Berhasil',
-        text: '{{ session('success') }}',
-        showConfirmButton: false,
-        timer: 2000
-    });
-</script>
-@endif
-
-@if (session('error'))
-<script>
-    Swal.fire({
-        icon: 'error',
-        title: 'Gagal',
-        text: '{{ session('error') }}',
-        showConfirmButton: true
-    });
-</script>
-@endif
 
   </body>
 </html>

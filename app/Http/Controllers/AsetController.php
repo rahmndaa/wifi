@@ -88,4 +88,7 @@ public function index(Request $request)
         Aset::destroy($id);
         return redirect()->route('admin.aset')->with('success', 'Data berhasil dihapus!');
     }
+
+   
+
 }
