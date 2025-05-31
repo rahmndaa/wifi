@@ -180,8 +180,33 @@
 <!-- Sweet Alert -->
 <script src="{{ asset('kaiadmin/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Kaiadmin JS -->
 <script src="{{ asset('kaiadmin/assets/js/kaiadmin.min.js') }}"></script>
+
+{{-- sweet alert --}}
+@if (session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text: '{{ session('success') }}',
+        showConfirmButton: false,
+        timer: 2000
+    });
+</script>
+@endif
+
+@if (session('error'))
+<script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Gagal',
+        text: '{{ session('error') }}',
+        showConfirmButton: true
+    });
+</script>
+@endif
 
   </body>
 </html>
