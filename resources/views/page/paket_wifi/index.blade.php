@@ -53,10 +53,10 @@
                           <a href="{{ route('admin.paket_wifi.edit', $p->id_paket) }}" class="btn btn-link btn-warning btn-sm" data-bs-toggle="tooltip" title="Edit Paket">
                               <i class="fa fa-edit fa-lg"></i>
                           </a>
-                          <form action="{{ route('admin.paket_wifi.destroy', $p->id_paket) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                          <form id="form-hapus-{{ $p->id_paket }}" action="{{ route('admin.paket_wifi.destroy', $p->id_paket) }}" method="POST" class="d-inline">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-link btn-danger btn-sm" data-bs-toggle="tooltip" title="Hapus Paket">
+                              <button type="button" class="btn btn-link btn-danger btn-sm btn-hapus" data-id="{{ $p->id_paket }}">
                                   <i class="fa fa-times fa-lg"></i>
                               </button>
                           </form>

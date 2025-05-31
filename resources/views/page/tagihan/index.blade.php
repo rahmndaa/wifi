@@ -23,14 +23,15 @@
 
     {{-- Form Generate dan Tambah Tagihan --}}
     <div class="row mb-3">
-      <div class="col-md-2">
-        <form action="{{ route('admin.tagihan.generate') }}" method="POST" onsubmit="return confirm('Yakin ingin generate tagihan bulan ini?')">
-          @csrf
-          <button type="submit" class="btn btn-black btn-sm w-100">
-            <i class="fa fa-plus"></i> Generate tagihan
-          </button>
-        </form>
+        <div class="col-md-2">
+          <form action="{{ route('admin.tagihan.generate') }}" method="POST" id="form-generate-tagihan">
+            @csrf
+            <button type="button" class="btn btn-black btn-sm w-100" id="btn-generate-tagihan">
+              <i class="fa fa-plus"></i> Generate tagihan
+            </button>
+          </form>
       </div>
+
       <div class="col-md-2">
         <a href="{{ route('admin.tagihan.create') }}" class="btn btn-primary btn-sm w-100">
           <i class="fa fa-plus"></i> Tambah Tagihan
@@ -109,7 +110,7 @@
               <td>
                 <div class="form-button-action">
                     <a href="https://wa.me/{{ $t->pelanggan->no_whatsapp }}?text={{ urlencode('Halo ' . $t->pelanggan->nama_pelanggan . ', ini tagihan Anda untuk periode ' . $t->periode_bulan . '/' . $t->periode_tahun . ' sebesar Rp ' . number_format($t->total_tagihan, 0, ',', '.') . 
-                    '. Segera lakukan pembayaran di dalam website fdl.my.id atau datang ke gerai. Sekian terima kasih. Hormat kami, TTD Fadlnet.') }}" target="_blank" class="btn btn-link btn-success btn-sm" data-bs-toggle="tooltip" title="Kirim Pesan">
+                    '. Segera lakukan pembayaran di dalam website fdlnet.my.id atau datang ke gerai. Sekian terima kasih. Hormat kami, TTD Fdlnet.') }}" target="_blank" class="btn btn-link btn-success btn-sm" data-bs-toggle="tooltip" title="Kirim Pesan">
                         <i class="fab fa-whatsapp fa-lg"></i>
                     </a>
                 </div>
@@ -123,12 +124,12 @@
                     <a href="{{ route('admin.tagihan.edit', $t->id_tagihan) }}" class="btn btn-link btn-warning btn-sm" data-bs-toggle="tooltip" title="Edit Tagihan">
                     <i class="fa fa-edit fa-lg"></i>
                     </a>
-                    <form action="{{ route('admin.tagihan.destroy', $t->id_tagihan) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus?')">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-link btn-danger btn-sm" data-bs-toggle="tooltip" title="Hapus Tagihan">
+                    <form action="{{ route('admin.tagihan.destroy', $t->id_tagihan) }}" method="POST" class="d-inline" id="form-hapus-{{ $t->id_tagihan }}">
+                      @csrf
+                      @method('DELETE')
+                      <button type="button" class="btn btn-link btn-danger btn-sm btn-hapus" data-id="{{ $t->id_tagihan }}" data-bs-toggle="tooltip" title="Hapus Tagihan">
                         <i class="fa fa-times fa-lg"></i>
-                    </button>
+                      </button>
                     </form>
                 </div>
                 </td>

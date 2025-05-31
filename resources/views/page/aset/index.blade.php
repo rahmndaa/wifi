@@ -77,13 +77,6 @@
                                     <a href="{{ route('admin.aset.edit', $a->id_aset) }}" class="btn btn-link btn-warning btn-sm" data-bs-toggle="tooltip" title="Edit Aset">
                                         <i class="fa fa-edit fa-lg"></i>
                                     </a>
-                                    <form action="{{ route('admin.aset.destroy', $a->id_aset) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus aset ini?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-link btn-danger btn-sm" data-bs-toggle="tooltip" title="Hapus Aset">
-                                            <i class="fa fa-times fa-lg"></i>
-                                        </button>
-                                    </form>
                                 </div>
                             </td>
                         </tr>

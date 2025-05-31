@@ -54,7 +54,7 @@ public function index(Request $request)
         }
 
         Aset::create($request->all());
-        return redirect()->route('admin.aset');
+        return redirect()->route('admin.aset')->with('success', 'Data berhasil ditambahkan!');
     }
 
     public function edit($id)
@@ -76,7 +76,7 @@ public function index(Request $request)
 
         $aset = Aset::findOrFail($id);
         $aset->update($request->all());
-        return redirect()->route('admin.aset');
+        return redirect()->route('admin.aset')->with('success', 'Data berhasil diubah!');
     }
 
     public function destroy($id)
@@ -86,7 +86,7 @@ public function index(Request $request)
         }
 
         Aset::destroy($id);
-        return redirect()->route('admin.aset');
+        return redirect()->route('admin.aset')->with('success', 'Data berhasil dihapus!');
     }
 
    

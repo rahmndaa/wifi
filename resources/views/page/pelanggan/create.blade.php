@@ -71,6 +71,10 @@
                                             <option value="arsip">Arsip</option>
                                         </select>
                                     </div>
+                                    <div class="form-group mb-3">
+                                        <label>Alamat</label>
+                                        <input type="text" name="alamat" class="form-control" required>
+                                    </div>
                                 </div>
                             </div>
 

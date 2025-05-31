@@ -225,6 +225,9 @@
 <!-- Sweet Alert -->
 <script src="{{ asset('kaiadmin/assets/js/plugin/sweetalert/sweetalert.min.js') }}"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 <!-- Kaiadmin JS -->
 <script src="{{ asset('kaiadmin/assets/js/kaiadmin.min.js') }}"></script>
 
@@ -238,6 +241,83 @@
     });
   });
 </script>
+
+{{-- sweet alert --}}
+@if (session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text: '{{ session('success') }}',
+        showConfirmButton: false,
+        timer: 2000
+    });
+</script>
+@endif
+
+@if (session('error'))
+<script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Gagal',
+        text: '{{ session('error') }}',
+        showConfirmButton: true
+    });
+</script>
+@endif
+
+
+<!-- Script Hapus Sweet alert-->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tombolHapus = document.querySelectorAll('.btn-hapus');
+    tombolHapus.forEach(button => {
+      button.addEventListener('click', function () {
+        const id = this.getAttribute('data-id');
+        Swal.fire({
+          title: 'Yakin ingin menghapus?',
+          text: "Data yang dihapus tidak bisa dikembalikan!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#d33',
+          cancelButtonColor: '#6c757d',
+          confirmButtonText: 'Ya, hapus!',
+          cancelButtonText: 'Batal'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            document.getElementById(`form-hapus-${id}`).submit();
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<!-- Script Generate Tagihan Sweet alert -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const btnGenerate = document.getElementById('btn-generate-tagihan');
+    const formGenerate = document.getElementById('form-generate-tagihan');
+
+    btnGenerate.addEventListener('click', function () {
+      Swal.fire({
+        title: 'Yakin ingin generate tagihan?',
+        text: "Tagihan akan dibuat untuk bulan ini.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, lanjutkan!',
+        cancelButtonText: 'Batal'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          formGenerate.submit();
+        }
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
 
