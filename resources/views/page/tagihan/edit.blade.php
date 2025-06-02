@@ -6,11 +6,11 @@
         <div class="page-header">
             <h3 class="fw-bold mb-3">Edit Tagihan</h3>
             <ul class="breadcrumbs mb-3">
-                <li class="nav-home"><a href="#"><i class="icon-home"></i></a></li>
+                <li class="nav-home"><a href="{{ route('admin.dashboard') }}"><i class="icon-home"></i></a></li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="#">Tagihan</a></li>
+                <li class="nav-item"><a href="{{ route('admin.tagihan') }}">Tagihan</a></li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="#">Edit</a></li>
+                <li class="nav-item"><a href="{{ route('admin.tagihan.edit', $tagihan->id_tagihan) }}">Edit</a></li>
             </ul>
         </div>
 

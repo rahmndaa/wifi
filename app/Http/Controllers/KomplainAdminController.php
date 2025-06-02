@@ -53,32 +53,30 @@ class KomplainAdminController extends Controller
         return redirect()->route('admin.komplain.index')->with('success', 'Status komplain berhasil diperbarui.');
     }
     
-    public function formBalas($id)
-    {
-        if (!session('admin')) {
-            return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
+        public function kirimBalasan(Request $request, $id)
+        {
+            // Validasi input
+            $request->validate([
+                'status' => 'required|in:menunggu,proses,selesai',
+                'balasan_admin' => 'required|string',
+            ]);
+
+            // Ambil data komplain
+            $komplain = Komplain::findOrFail($id);
+
+            // Hanya update status & balasan admin
+            $komplain->status = $request->status;
+            $komplain->balasan_admin = $request->balasan_admin;
+
+            // Jika status selesai, catat waktu selesai
+            if ($request->status === 'selesai') {
+                $komplain->tanggal_komplain_selesai = now();
+            }
+
+            $komplain->save();
+
+            return redirect()->route('admin.komplain.index')->with('success', 'Balasan dan status berhasil diperbarui.');
         }
 
-        $komplain = Komplain::findOrFail($id);
-        return view('page.komplain.balas', compact('komplain'));
-    }
-
-    public function kirimBalasan(Request $request, $id)
-    {
-        if (!session('admin')) {
-            return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
-        }
-        
-        $request->validate([
-            'balasan_admin' => 'required|string',
-        ]);
-
-        $komplain = Komplain::findOrFail($id);
-        $komplain->balasan_admin = $request->balasan_admin;
-        $komplain->tanggal_komplain_selesai = now();
-        $komplain->save();
-
-        return redirect()->route('admin.komplain.index')->with('success', 'Balasan berhasil dikirim');
-    }
 
 }

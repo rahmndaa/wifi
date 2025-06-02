@@ -6,14 +6,14 @@
         <div class="page-header">
             <h3 class="fw-bold mb-3">Pengaduan</h3>
             <ul class="breadcrumbs mb-3">
-                <li class="nav-home"><a href="#"><i class="icon-home"></i></a></li>
+                <li class="nav-home"><a href="{{ route('pelanggan.dashboard') }}"><i class="icon-home"></i></a></li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="#">Pengaduan</a></li>
+                <li class="nav-item"><a href="{{ route('pelanggan.komplain.index') }}">Pengaduan</a></li>
             </ul>
         </div>
-                        <div class="d-flex justify-content-between mb-3">
-                            <a href="{{ route('pelanggan.komplain.create') }}" class="btn btn-primary btn-sm">Buat Baru</a>
-                        </div>
+        <div class="d-flex justify-content-between mb-3">
+                <a href="{{ route('pelanggan.komplain.create') }}" class="btn btn-primary btn-sm">Buat Baru</a>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card shadow rounded">

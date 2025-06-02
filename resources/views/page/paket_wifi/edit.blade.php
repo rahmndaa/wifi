@@ -4,15 +4,15 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h3 class="fw-bold mb-3">Edit Paket WiFi</h3>
+            <h3 class="fw-bold mb-3">Edit Paket</h3>
             <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
-                    <a href="#"><i class="icon-home"></i></a>
+                    <a href="{{ route('admin.dashboard') }}"><i class="icon-home"></i></a>
                 </li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="#">Paket</a></li>
+                <li class="nav-item"><a href="{{ route('admin.paket_wifi') }}">Paket</a></li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="#">Edit</a></li>
+                <li class="nav-item"><a href="{{ route('admin.paket_wifi.edit', $paket->id_paket) }}">Edit</a></li>
             </ul>
         </div>
 

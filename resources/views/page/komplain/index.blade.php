@@ -6,9 +6,9 @@
         <div class="page-header">
             <h3 class="fw-bold mb-3">Keluhan Pelanggan</h3>
             <ul class="breadcrumbs mb-3">
-                <li class="nav-home"><a href="#"><i class="icon-home"></i></a></li>
+                <li class="nav-home"><a href="{{ route('admin.dashboard') }}"><i class="icon-home"></i></a></li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="#">Keluhan Pelanggan</a></li>
+                <li class="nav-item"><a href="{{ route('admin.komplain.index') }}">Keluhan Pelanggan</a></li>
             </ul>
         </div>
 
@@ -65,10 +65,9 @@
                                     <a href="{{ route('admin.komplain.show', ['id' => $k->id_komplain]) }}" class="btn btn-link btn-primary btn-sm" data-bs-toggle="tooltip" title="Lihat Komplain">
                                         <i class="fa fa-eye fa-lg"></i>
                                     </a>
-
-                                    <a href="{{ route('admin.komplain.balas.form', ['id' => $k->id_komplain]) }}" class="btn btn-link btn-success btn-sm" data-bs-toggle="tooltip" title="Balas Komplain">
+                                    {{-- <a href="{{ route('admin.komplain.balas.form', ['id' => $k->id_komplain]) }}" class="btn btn-link btn-success btn-sm" data-bs-toggle="tooltip" title="Balas Komplain">
                                         <i class="fa fa-reply fa-lg"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </td>
                         </tr>

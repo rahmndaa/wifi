@@ -122,7 +122,6 @@
                   <p>Aset</p>
                 </a>
               </li>
-
               <li class="nav-item {{ request()->routeIs('admin.komplain.index') ? 'active' : '' }}">
                 <a href="{{ route('admin.komplain.index') }}">
                   <i class="fas fa-info"></i>
@@ -190,6 +189,7 @@
 
 
           <!-- End Navbar -->
+          
         </div>
               @yield('content')
         </div>

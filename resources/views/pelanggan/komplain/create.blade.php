@@ -6,9 +6,9 @@
         <div class="page-header">
             <h3 class="fw-bold mb-3">Keluhan</h3>
             <ul class="breadcrumbs mb-3">
-                <li class="nav-home"><a href="#"><i class="icon-home"></i></a></li>
+                <li class="nav-home"><a href="{{ route('pelanggan.dashboard') }}"><i class="icon-home"></i></a></li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="#">Keluhan</a></li>
+                <li class="nav-item"><a href="{{ route('pelanggan.komplain.create') }}">Keluhan</a></li>
             </ul>
         </div>
 

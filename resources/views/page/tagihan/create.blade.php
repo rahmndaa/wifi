@@ -7,12 +7,12 @@
             <h3 class="fw-bold mb-3">Tambah Tagihan</h3>
             <ul class="breadcrumbs mb-3">
                 <li class="nav-home">
-                    <a href="#"><i class="icon-home"></i></a>
+                    <a href="{{ route('admin.dashboard') }}"><i class="icon-home"></i></a>
                 </li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="#">Tagihan</a></li>
+                <li class="nav-item"><a href="{{ route('admin.tagihan') }}">Tagihan</a></li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="#">Tambah</a></li>
+                <li class="nav-item"><a href="{{ route('admin.tagihan.create') }}">Tambah</a></li>
             </ul>
         </div>
 

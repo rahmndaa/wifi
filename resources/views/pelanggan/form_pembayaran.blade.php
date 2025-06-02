@@ -6,9 +6,9 @@
         <div class="page-header">
             <h3 class="fw-bold mb-3">Form Pembayaran</h3>
             <ul class="breadcrumbs mb-3">
-                <li class="nav-home"><a href="#"><i class="icon-home"></i></a></li>
+                <li class="nav-home"><a href="{{ route('pelanggan.dashboard') }}"><i class="icon-home"></i></a></li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="#">Form Pembayaran</a></li>
+                <li class="nav-item"><a href="{{ route('pelanggan.pembayaran.form', $tagihan->id_tagihan) }}">Form Pembayaran</a></li>
             </ul>
         </div>
         <div class="card shadow rounded">

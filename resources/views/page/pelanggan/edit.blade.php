@@ -7,11 +7,11 @@
         <div class="page-header">
             <h3 class="fw-bold mb-3">Edit Pelanggan</h3>
             <ul class="breadcrumbs mb-3">
-                <li class="nav-home"><a href="#"><i class="icon-home"></i></a></li>
+                <li class="nav-home"><a href="{{ route('admin.dashboard') }}"><i class="icon-home"></i></a></li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="#">Pelanggan</a></li>
+                <li class="nav-item"><a href="{{ route('admin.pelanggan') }}">Pelanggan</a></li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="#">Edit</a></li>
+                <li class="nav-item"><a href="{{ route('admin.pelanggan.edit', $pelanggan->id_pelanggan) }}">Edit</a></li>
             </ul>
         </div>
 

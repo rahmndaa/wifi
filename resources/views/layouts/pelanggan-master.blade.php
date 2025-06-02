@@ -177,7 +177,7 @@
 
 <!-- Bootstrap Notify -->
 <script src="{{ asset('kaiadmin/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
-
+{{--  --}}
 <!-- jQuery Vector Maps -->
 <script src="{{ asset('kaiadmin/assets/js/plugin/jsvectormap/jsvectormap.min.js') }}"></script>
 <script src="{{ asset('kaiadmin/assets/js/plugin/jsvectormap/world.js') }}"></script>
@@ -189,7 +189,6 @@
 
 <!-- Kaiadmin JS -->
 <script src="{{ asset('kaiadmin/assets/js/kaiadmin.min.js') }}"></script>
-
 
 {{-- sweet alert --}}
 @if (session('success'))
@@ -214,7 +213,6 @@
     });
 </script>
 @endif
-
 
   </body>
 </html>

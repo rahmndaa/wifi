@@ -7,7 +7,7 @@
       <h3 class="fw-bold mb-3">Tambah Paket WiFi</h3>
       <ul class="breadcrumbs mb-3">
         <li class="nav-home">
-          <a href="#">
+          <a href="{{ route('admin.dashboard') }}">
             <i class="icon-home"></i>
           </a>
         </li>
@@ -15,7 +15,7 @@
           <i class="icon-arrow-right"></i>
         </li>
         <li class="nav-item">
-          <a href="#">Paket WiFi</a>
+          <a href="{{ route('admin.paket_wifi') }}">Paket WiFi</a>
         </li>
         <li class="separator">
           <i class="icon-arrow-right"></i>
