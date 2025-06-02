@@ -62,8 +62,6 @@ Route::get('/admin/dashboard', [AdminAuthController::class, 'dashboard'])->name(
     // Komplain (Admin)
     Route::get('/admin/komplain', [KomplainAdminController::class, 'index'])->name('admin.komplain.index');
     Route::get('/admin/komplain/{id}', [KomplainAdminController::class, 'show'])->name('admin.komplain.show');
-    Route::get('/admin/komplain/{id}/update-status', [KomplainAdminController::class, 'updateStatus'])->name('admin.komplain.updateStatus');
-    Route::put('/admin/komplain/{id}/update-status', [KomplainAdminController::class, 'updateStatus'])->name('admin.komplain.updateStatus');
     Route::get('/admin/komplain/{id}/balas', [KomplainAdminController::class, 'formBalas'])->name('admin.komplain.balas.form');
     Route::post('/admin/komplain/{id}/balas', [KomplainAdminController::class, 'kirimBalasan'])->name('admin.komplain.balas.kirim');
 

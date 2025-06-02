@@ -177,7 +177,7 @@
 
 <!-- Bootstrap Notify -->
 <script src="{{ asset('kaiadmin/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
-
+{{--  --}}
 <!-- jQuery Vector Maps -->
 <script src="{{ asset('kaiadmin/assets/js/plugin/jsvectormap/jsvectormap.min.js') }}"></script>
 <script src="{{ asset('kaiadmin/assets/js/plugin/jsvectormap/world.js') }}"></script>
@@ -187,9 +187,32 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Kaiadmin JS -->
 <script src="{{ asset('kaiadmin/assets/js/kaiadmin.min.js') }}"></script>
+
+{{-- sweet alert --}}
+@if (session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text: '{{ session('success') }}',
+        showConfirmButton: false,
+        timer: 2000
+    });
+</script>
+@endif
+
+@if (session('error'))
+<script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Gagal',
+        text: '{{ session('error') }}',
+        showConfirmButton: true
+    });
+</script>
+@endif
 
   </body>
 </html>
