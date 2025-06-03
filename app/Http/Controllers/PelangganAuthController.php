@@ -28,7 +28,7 @@ class PelangganAuthController extends Controller
             return redirect()->route('pelanggan.dashboard');  
         }
     
-        return back()->withErrors(['username' => 'Username atau password salah.']);
+        return back()->with('error', 'Username atau password salah.');
     }
     
     

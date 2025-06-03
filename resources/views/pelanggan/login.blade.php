@@ -6,6 +6,7 @@
     <title>Login - WiPaykuu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="flex flex-col items-center justify-center h-screen bg-gray-100 relative">
     <img src="{{ asset('kaiadmin/assets/img/logo-wipaykuu-2.png') }}" width="200" alt="WiPaykuu Logo" />
@@ -24,6 +25,17 @@
             <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Log in</button>
         </form>
     </div>
+    {{-- SweetAlert jika error --}}
+    @if (session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Login Gagal',
+            text: "{{ session('error') }}",
+            confirmButtonColor: '#3085d6'
+        });
+    </script>
+    @endif
 
     <!-- Tombol admin login di pojok kanan bawah -->
     <a href="{{ route('admin.login') }}" class="fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition">
