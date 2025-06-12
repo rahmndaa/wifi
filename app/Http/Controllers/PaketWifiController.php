@@ -13,7 +13,7 @@ class PaketWifiController extends Controller
         if (!session('admin')) {
             return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
         }
-    
+        
         $paket = DB::table('paket_wifi')->get();
     
         return view('page.paket_wifi.index', compact('paket'));

@@ -14,7 +14,7 @@ use App\Http\Controllers\KomplainPelangganController;
 use App\Http\Controllers\AsetController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pelanggan.login');
 });
 // Route Admin
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');

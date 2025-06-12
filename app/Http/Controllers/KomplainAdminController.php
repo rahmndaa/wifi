@@ -33,26 +33,6 @@ class KomplainAdminController extends Controller
         $komplain = Komplain::with('pelanggan')->findOrFail($id);
         return view('page.komplain.show', compact('komplain'));
     }
-
-    public function updateStatus(Request $request, $id)
-    {
-        if (!session('admin')) {
-            return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
-        }
-        $request->validate([
-            'status' => 'required|in:menunggu,proses,selesai',
-        ]);
-    
-        $komplain = Komplain::findOrFail($id);
-        $komplain->status = $request->status;
-        if ($request->status == 'selesai') {
-            $komplain->tanggal_komplain_selesai = now()->format('Y-m-d');
-        }
-        $komplain->save();
-    
-        return redirect()->route('admin.komplain.index')->with('success', 'Status komplain berhasil diperbarui.');
-    }
-    
         public function kirimBalasan(Request $request, $id)
         {
             // Validasi input

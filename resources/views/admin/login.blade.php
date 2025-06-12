@@ -14,11 +14,11 @@
             @csrf
             <div class="mb-4">
                 <h5 class="text-sm text-gray-600">Username</h5>
-                <input type="text" name="username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <input type="text" name="username" required autocomplete="username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
             <div class="mb-4">
                 <h5 class="text-sm text-gray-600">Password</h5>
-                <input type="password" name="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <input type="password" name="password" required autocomplete="current-password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
             <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Log in</button>
         </form>
