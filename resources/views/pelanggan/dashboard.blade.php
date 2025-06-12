@@ -103,7 +103,7 @@
             @foreach ($tagihan as $t)
             <tr>
               <td>{{ $t->id_tagihan }}</td>
-              <td>{{ \Carbon\Carbon::create()->month($t->periode_bulan)->format('F') }} {{ $t->periode_tahun }}</td>
+              <td>{{ \Carbon\Carbon::create()->month((int) $t->periode_bulan)->format('F') }} {{ $t->periode_tahun }}</td>
               <td>{{ $t->pelanggan->paketWifi->nama_paket ?? '-' }}</td>
               <td>Rp {{ number_format($t->total_tagihan, 0, ',', '.') }}</td>
               <td>
