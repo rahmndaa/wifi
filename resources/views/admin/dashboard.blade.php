@@ -25,7 +25,7 @@
               <div class="col col-stats ms-3 ms-sm-0">
                 <div class="numbers">
                   <p class="card-category">Paket</p>
-                  <h4 class="card-title">{{ $totalPaket ?? 0 }}</h4>
+               <h4 class="card-title">{{ $totalPaket ?? 0 }}</h4>
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@
               <div class="col col-stats ms-3 ms-sm-0">
                 <div class="numbers">
                   <p class="card-category">Transaksi</p>
-                  <h4 class="card-title">{{ $totalTransaksi ?? 0 }}</h4>
+                  <h4 class="card-title">{{$totalTagihanMenunggu ?? 0}}</h4>
                 </div>
               </div>
             </div>
@@ -85,7 +85,7 @@
               <div class="col col-stats ms-3 ms-sm-0">
                 <div class="numbers">
                   <p class="card-category">Keluhan</p>
-                  <h4 class="card-title">{{ $totalKomplain ?? 0 }}</h4>
+                  <h4 class="card-title">{{ $totalKeluhanMenunggu ?? 0 }}</h4>
                 </div>
               </div>
             </div>
@@ -127,7 +127,7 @@
         <div class="col col-stats ms-3 ms-sm-0">
           <div class="numbers">
             <p class="card-category">Aset Tersedia</p>
-            <h4 class="card-title">{{ $totalAsetTersedia ?? 0 }}</h4>
+            <h4 class="card-title">{{ $asetTersedia ?? 0 }}</h4>
           </div>
         </div>
       </div>
@@ -148,7 +148,7 @@
           <div class="col col-stats ms-3 ms-sm-0">
             <div class="numbers">
               <p class="card-category">Aset Digunakan</p>
-              <h4 class="card-title">{{ $totalAsetDigunakan ?? 0 }}</h4>
+              <h4 class="card-title">{{ $asetDigunakan ?? 0 }}</h4>
             </div>
           </div>
         </div>
@@ -169,7 +169,7 @@
           <div class="col col-stats ms-3 ms-sm-0">
             <div class="numbers">
               <p class="card-category">Aset Rusak</p>
-              <h4 class="card-title">{{ $totalAsetRusak ?? 0 }}</h4>
+              <h4 class="card-title">{{ $asetRusak ?? 0 }}</h4>
             </div>
           </div>
         </div>

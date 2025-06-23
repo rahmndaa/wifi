@@ -12,6 +12,7 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\KomplainAdminController;
 use App\Http\Controllers\KomplainPelangganController;
 use App\Http\Controllers\AsetController;
+use App\Http\Controllers\AdminDashboardController;
 
 Route::get('/', function () {
     return view('pelanggan.login');
@@ -20,8 +21,7 @@ Route::get('/', function () {
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'login']);
 Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
-Route::get('/admin/dashboard', [AdminAuthController::class, 'dashboard'])->name('admin.dashboard');
-
+Route::get('/admin/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
 
 
     // Paket WiFi (Admin)

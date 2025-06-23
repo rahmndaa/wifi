@@ -4,11 +4,11 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h3 class="fw-bold mb-3">Pengaduan</h3>
+            <h3 class="fw-bold mb-3">Keluhan</h3>
             <ul class="breadcrumbs mb-3">
                 <li class="nav-home"><a href="{{ route('pelanggan.dashboard') }}"><i class="icon-home"></i></a></li>
                 <li class="separator"><i class="icon-arrow-right"></i></li>
-                <li class="nav-item"><a href="{{ route('pelanggan.komplain.index') }}">Pengaduan</a></li>
+                <li class="nav-item"><a href="{{ route('pelanggan.komplain.index') }}">Keluhan</a></li>
             </ul>
         </div>
         <div class="d-flex justify-content-between mb-3">
@@ -46,7 +46,7 @@
                                     </td>
                                     <td>
                                         @if($komplain->bukti_komplain)
-                                        <a href="{{ asset('storage/' . $komplain->bukti_komplain) }}" target="_blank" class="btn btn-primary btn-xs">
+                                        <a href="{{ asset('storage/' . $komplain->bukti_komplain) }}" target="_blank" class="btn btn-primary btn-xs"data-bs-toggle="tooltip" title="Bukti Transfer">
                                             <i class="fa fa-image fa-lg"></i>
                                         </a>
                                         @else
