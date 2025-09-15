@@ -194,16 +194,6 @@ return [
         'html'     => Excel::HTML,
         'csv'      => Excel::CSV,
         'tsv'      => Excel::TSV,
-
-        /*
-        |--------------------------------------------------------------------------
-        | PDF Extension
-        |--------------------------------------------------------------------------
-        |
-        | Configure here which Pdf driver should be used by default.
-        | Available options: Excel::MPDF | Excel::TCPDF | Excel::DOMPDF
-        |
-        */
         'pdf'      => Excel::DOMPDF,
     ],
 
