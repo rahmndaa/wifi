@@ -3,22 +3,32 @@
 @section('content')
 <div class="container">
   <div class="page-inner">
-    <div class="page-header">
-      <h3 class="fw-bold mb-3">Pembayaran</h3>
-      <ul class="breadcrumbs mb-3">
-        <li class="nav-home">
-          <a href="{{ route('admin.dashboard') }}">
-            <i class="icon-home"></i>
-          </a>
-        </li>
-        <li class="separator">
-          <i class="icon-arrow-right"></i>
-        </li>
-        <li class="nav-item">
-          <a href="{{ route('admin.pembayaran') }}">Pembayaran</a>
-        </li>
-      </ul>
+<div class="page-header d-flex justify-content-between align-items-center">
+    {{-- Kiri: Breadcrumb + Judul --}}
+    <div class="d-flex align-items-center">
+        <h3 class="fw-bold mb-0 me-3">Pembayaran</h3>
+        <ul class="breadcrumbs mb-0 d-flex align-items-center">
+            <li class="nav-home">
+                <a href="{{ route('admin.dashboard') }}">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.pembayaran') }}">Pembayaran</a>
+            </li>
+        </ul>
     </div>
+
+    {{-- Kanan: Tombol Export --}}
+    <div>
+        <a href="{{ route('pembayaran.export') }}" class="btn btn-success btn-sm">Export</a>
+
+    </div>
+</div>
+
 
     {{-- Filter --}}
     <form method="GET" action="{{ route('admin.pembayaran') }}" class="row mb-4">
@@ -53,7 +63,8 @@
           <i class="fa fa-search"></i>
         </button>
       </div>
-    </form>
+
+      </form>
 
     {{-- Tabel Pembayaran --}}
     <div class="card">
