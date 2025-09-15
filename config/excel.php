@@ -125,11 +125,11 @@ return [
         |
         */
         'csv'          => [
-            'delimiter'        => null,
+            'delimiter'        => ',',
             'enclosure'        => '"',
             'escape_character' => '\\',
             'contiguous'       => false,
-            'input_encoding'   => Csv::GUESS_ENCODING,
+            'input_encoding'   => 'UTF-8',
         ],
 
         /*
