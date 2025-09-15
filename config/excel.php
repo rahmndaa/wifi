@@ -3,7 +3,6 @@
 use Maatwebsite\Excel\Excel;
 use PhpOffice\PhpSpreadsheet\Reader\Csv;
 
-
 return [
     'exports' => [
 
@@ -125,11 +124,11 @@ return [
         |
         */
         'csv'          => [
-            'delimiter'        => ',',
+            'delimiter'        => null,
             'enclosure'        => '"',
             'escape_character' => '\\',
             'contiguous'       => false,
-            'input_encoding'   => 'UTF-8',
+            'input_encoding'   => Csv::GUESS_ENCODING,
         ],
 
         /*
@@ -194,6 +193,16 @@ return [
         'html'     => Excel::HTML,
         'csv'      => Excel::CSV,
         'tsv'      => Excel::TSV,
+
+        /*
+        |--------------------------------------------------------------------------
+        | PDF Extension
+        |--------------------------------------------------------------------------
+        |
+        | Configure here which Pdf driver should be used by default.
+        | Available options: Excel::MPDF | Excel::TCPDF | Excel::DOMPDF
+        |
+        */
         'pdf'      => Excel::DOMPDF,
     ],
 
