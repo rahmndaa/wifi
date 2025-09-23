@@ -1,0 +1,275 @@
+[33mcommit fc1cabcf2f4bb78887ff203fdfed9beb15b14cd0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mnew-dashboard[m[33m, [m[1;31morigin/new-dashboard[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Tue Sep 16 00:23:47 2025 +0700
+
+    default
+
+[33mcommit b5760c26a68201e0614a499e3145dfbc38af705f[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Tue Sep 16 00:20:01 2025 +0700
+
+    menambah error excell
+
+[33mcommit 59de0a538873831acef9f785c016853c2389b82a[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Tue Sep 16 00:16:38 2025 +0700
+
+    menambah ekstension detector
+
+[33mcommit 415dca4573e0f192d065b6fe2f022e183c5911e1[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Tue Sep 16 00:09:41 2025 +0700
+
+    default csv
+
+[33mcommit 4081e502ced1329517cf2998de1b4b94942552de[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Tue Sep 16 00:03:00 2025 +0700
+
+    handling csv
+
+[33mcommit 5665b8543319a02d396f6a5642b1036b488ed765[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Mon Sep 15 23:19:19 2025 +0700
+
+    fitur export riwayat pembayaran
+
+[33mcommit b4fec9de04227941800dc9a59c198d2f5a3124cd[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Mon Jun 23 20:19:22 2025 +0700
+
+    memperbaiki dashboard dan keluhan
+
+[33mcommit 7e70983b2c777dc22d750d42bde2c93461e11dea[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu Jun 19 23:03:32 2025 +0700
+
+    memperbaiki form pembayran
+
+[33mcommit 809aed5cc819b09a044675800b75b1de8ae5a4c0[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Fri Jun 13 00:19:38 2025 +0700
+
+    memperbaiki error carbon
+
+[33mcommit fe9314cd767cf6606bee6b6eabdc3573817870b0[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Fri Jun 13 00:11:51 2025 +0700
+
+    memperbaiki route login pelanggan
+
+[33mcommit 4269c12b7fbda469e34e6806566bcf69c0a06120[m
+Author: nandarbq <nandar07@gmail.com>
+Date:   Tue Jun 3 13:03:57 2025 +0700
+
+    error login notif
+
+[33mcommit 1ee24a34d83de4d95bb4e691edd72b39f5cf0b59[m
+Merge: af4c571 6402b5c
+Author: Devi Aulya <devi@example.com>
+Date:   Tue Jun 3 00:14:39 2025 +0700
+
+    memperbarui breadcrumb
+
+[33mcommit af4c57112679b40a070c2bf6fc457c2818659652[m
+Author: Devi Aulya <devi@example.com>
+Date:   Mon Jun 2 22:47:41 2025 +0700
+
+    karep
+
+[33mcommit 6402b5c6d50a2bb32f41b0e355a8913d43dd21f2[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Mon Jun 2 22:12:22 2025 +0700
+
+    menggabungkan form balas dan ubah status
+
+[33mcommit bde3a693af102f3c886b2c4ed9d1d3a7f0da1927[m
+Merge: 3f81c4e 0f87ea1
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Sat May 31 21:08:35 2025 +0700
+
+    Merge branch 'new-dashboard' of https://github.com/febibtr/wipaykuu into new-dashboard
+
+[33mcommit 3f81c4e0d2549139c41281fc062192b342770baa[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Sat May 31 20:48:17 2025 +0700
+
+    ,
+
+[33mcommit 0f87ea14eda367062e0a4afa9595ebafba7cef33[m
+Author: Devi Aulya <devi@example.com>
+Date:   Sat May 31 20:39:27 2025 +0700
+
+    Sweet alert pelanggan toogle
+
+[33mcommit 74e565e9d955f67d92ba810f00e74168d833b950[m
+Merge: e69583e 143cbf5
+Author: Devi Aulya <devi@example.com>
+Date:   Sat May 31 19:49:04 2025 +0700
+
+    Merge branch 'new-dashboard' of https://github.com/febibtr/wipaykuu into new-dashboard
+
+[33mcommit e69583ea488c143e816b77c2697499b5fb3f7b6a[m
+Merge: 61cc994 f1053e7
+Author: Devi Aulya <devi@example.com>
+Date:   Sat May 31 19:48:53 2025 +0700
+
+    terserah
+
+[33mcommit 143cbf52a4b60f1500197cd9010cadfc4a79e4b1[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Sat May 31 18:32:17 2025 +0700
+
+    penambahan sweet alert
+
+[33mcommit f1053e79096c10705d5c1eebe99044a3a3cc9df6[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Fri May 23 22:15:55 2025 +0700
+
+    mengubah tabel komplain dan title layouts
+
+[33mcommit 61cc9947820f1c0dd4003712acc4bbe5a384c010[m
+Merge: bbf703e 3d7eff5
+Author: Devi Aulya <devi@example.com>
+Date:   Wed May 21 13:09:30 2025 +0700
+
+    Merge branch 'new-dashboard' of https://github.com/febibtr/wipaykuu into new-dashboard
+
+[33mcommit bbf703eda8880c852c2888a76a9c7a3bce9ba656[m
+Author: Devi Aulya <devi@example.com>
+Date:   Wed May 21 13:09:16 2025 +0700
+
+    coba
+
+[33mcommit 3d7eff50531d990fe35ff8e92e9901dabc6be2e9[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Tue May 20 17:40:53 2025 +0700
+
+    hapus status_tagihan
+
+[33mcommit 3538e5741447f5849678c542f45bf9aeee3514ba[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Tue May 20 17:13:58 2025 +0700
+
+    revisi mengembalikan total_tagihan
+
+[33mcommit 53e373a053d79541185a80b7a75bc303f0c50084[m
+Merge: 954ebd1 dcffa0d
+Author: Devi Aulya <devi@example.com>
+Date:   Fri May 16 23:41:51 2025 +0700
+
+    Resolve merge conflict in pelanggan-master.blade.php
+
+[33mcommit 954ebd1ff9abc8de59ce63a0f560694689bf4138[m
+Author: Devi Aulya <devi@example.com>
+Date:   Fri May 16 23:32:02 2025 +0700
+
+    depi
+
+[33mcommit dcffa0df57ab78f57af3bd7979b4263833fcfa2b[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 15 16:07:18 2025 +0700
+
+    meperbarui root, hapus total tagihan
+
+[33mcommit 32efc2418f24c8050c935a06ae168e3d9826456c[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 15 00:54:18 2025 +0700
+
+    perbaikan komplain
+
+[33mcommit 2fbfda4fcfbd22786cef5b81dfc1dec88044c6c2[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 15 00:04:52 2025 +0700
+
+    fitur aset first
+
+[33mcommit 3af64de124674a2b0eeecd7bca297c9283e0e5b9[m
+Author: Nama Anda <email@example.com>
+Date:   Wed May 14 09:50:17 2025 +0700
+
+    txt
+
+[33mcommit 5d58903f345bcdeb2af11af06da0b5378cd0f6cc[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Wed May 14 01:19:47 2025 +0700
+
+    button logout
+
+[33mcommit 15229a205a71ffc078a99fa3d839b49e4ae4f9b6[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Mon May 12 16:11:53 2025 +0700
+
+    tombol redirect login
+
+[33mcommit 57562d9dc935292f6803c585eca2f90714b2d51b[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Sun May 11 16:57:32 2025 +0700
+
+    new dashboard
+
+[33mcommit 6e0f5c964e1d7a69e8514290b7c0199b6c6510c9[m[33m ([m[1;31morigin/fitur-komplain[m[33m)[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 8 20:53:49 2025 +0700
+
+    first fitur komplain
+
+[33mcommit a7fd7d4002839ad0750cd977da58d258cb098032[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 8 18:13:17 2025 +0700
+
+    update fitur pembauaran
+
+[33mcommit b6a1cb91b04d2527c237b7af251a13b1c11699fd[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 8 17:02:41 2025 +0700
+
+    memperbaiki bukti transfer
+
+[33mcommit b1d85a0a0be3b576c2acbdb60c3a1c62f5ee4ae0[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 8 16:35:54 2025 +0700
+
+    ubah tampilan dan tombol
+
+[33mcommit 8e784942ca1949b1924c913e8ae0480f9868d839[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 8 16:28:00 2025 +0700
+
+    ubah tampilan dan tombol
+
+[33mcommit c1b5861a67458833400b99e24856429ebc9842c8[m[33m ([m[1;31morigin/sprint-4[m[33m)[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 8 10:08:34 2025 +0700
+
+    baru
+
+[33mcommit c01e78cc4cf55b160ac3653b0b697883757c4143[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 8 09:46:11 2025 +0700
+
+    selesai sprint 4
+
+[33mcommit ea8fe221513fb3025d78eedff24d4822fea87e77[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 8 09:36:27 2025 +0700
+
+    penambahan halo aku febi
+
+[33mcommit 9746794483a4d29049028148a04ea0a08860ef36[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 8 09:31:08 2025 +0700
+
+    welcome
+
+[33mcommit 421b0fbb0d1b872b3db4e00da598c136f3e4a3c8[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 8 09:11:13 2025 +0700
+
+    first commit
+
+[33mcommit db33bb9d154aa97ba3bab5eee50cc01d71f435aa[m
+Author: febibtr <febibahtiyar28@gmail>
+Date:   Thu May 8 09:09:39 2025 +0700
+
+    first commit
