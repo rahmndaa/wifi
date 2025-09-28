@@ -14,6 +14,7 @@ use App\Http\Controllers\KomplainPelangganController;
 use App\Http\Controllers\AsetController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ExportPembayaranController;
+use App\Http\Controllers\LaporanKeuanganController;
 
 Route::get('/', function () {
     return view('pelanggan.login');
@@ -77,6 +78,16 @@ Route::get('/admin/dashboard', [AdminDashboardController::class, 'dashboard'])->
 
     // Export Pembayaran (Admin)
     Route::get('/admin/pembayaran/export', [ExportPembayaranController::class, 'exportExcel'])->name('pembayaran.export');
+
+    // Laporan Keuangan (Admin)
+   Route::get('/admin/laporan-keuangan', [LaporanKeuanganController::class, 'index'])->name('admin.laporan_keuangan.index');
+
+   // Edit form
+   Route::get('/admin/laporan-keuangan/{id}/edit', [LaporanKeuanganController::class, 'edit'])->name('admin.laporan_keuangan.edit');
+
+   // Proses update
+Route::put('/admin/laporan-keuangan/{id}', [LaporanKeuanganController::class, 'update'])->name('admin.laporan_keuangan.update');
+
 
 
 // Route pelanggan
