@@ -23,10 +23,14 @@
     </div>
     
     {{-- Kanan: Tombol Export --}}
-    <div>
-        <a href="{{ route('pembayaran.export') }}" class="btn btn-success btn-sm">Export</a>
+  <div>
+  <a href="{{ route('pembayaran.export', [
+      'tahun' => request('tahun'),
+      'bulan' => request('bulan'),
+      'status' => request('status')
+  ]) }}" class="btn btn-success btn-sm">Export</a>
+  </div>
 
-    </div>
 </div>
 
 

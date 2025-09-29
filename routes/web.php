@@ -100,6 +100,8 @@ Route::get('/admin/dashboard', [AdminDashboardController::class, 'dashboard'])->
 
 
 
+
+
 // Route pelanggan
 Route::get('/pelanggan/login', [PelangganAuthController::class, 'showLoginForm'])->name('pelanggan.login');
 Route::post('/pelanggan/login', [PelangganAuthController::class, 'login']);
