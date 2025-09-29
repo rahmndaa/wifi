@@ -129,12 +129,14 @@
                 </a>
               </li>
 
-             <li class="nav-item {{ request()->routeIs('admin.laporan_keuangan.index') ? 'active' : '' }}">
+            <li class="nav-item {{ request()->routeIs('admin.laporan_keuangan.*') ? 'active' : '' }}">
     <a href="{{ route('admin.laporan_keuangan.index') }}">
         <i class="fas fa-file-invoice-dollar"></i>
         <p>Laporan Keuangan</p>
     </a>
 </li>
+
+
 
 
             </ul>

@@ -3,36 +3,65 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\LaporanKeuangan;
+use App\Models\Pemasukan;
+use App\Models\Pengeluaran;
 
 class LaporanKeuanganController extends Controller
 {
     public function index()
     {
-        $laporans = LaporanKeuangan::latest()->paginate(10);
-        return view('page.laporan_keuangan.index', compact('laporans'));
-
+        $pemasukan = Pemasukan::all();
+        $pengeluaran = Pengeluaran::all();
+        return view('page.laporan_keuangan.index', compact('pemasukan', 'pengeluaran'));
     }
 
-    public function edit($id)
+    public function storePemasukan(Request $request)
     {
-        $laporan = LaporanKeuangan::findOrFail($id);
-        return view('page.laporan_keuangan.edit', compact('laporan'));
+        Pemasukan::create($request->all());
+        return redirect()->route('admin.laporan_keuangan.index')
+                         ->with('success', 'Pemasukan berhasil ditambahkan.');
     }
 
-    public function update(Request $request, $id)
+    public function storePengeluaran(Request $request)
     {
-        $request->validate([
-            'tanggal' => 'required|date',
-            'deskripsi' => 'required|string',
-            'pemasukan' => 'required|numeric',
-            'pengeluaran' => 'required|numeric',
-        ]);
+        Pengeluaran::create($request->all());
+        return redirect()->route('admin.laporan_keuangan.index')
+                         ->with('success', 'Pengeluaran berhasil ditambahkan.');
+    }
 
-        $laporan = LaporanKeuangan::findOrFail($id);
-        $laporan->update($request->all());
+    public function edit($type, $id)
+    {
+        if ($type == 'pemasukan') {
+            $data = Pemasukan::findOrFail($id);
+        } else {
+            $data = Pengeluaran::findOrFail($id);
+        }
+
+        return view('page.laporan_keuangan.edit', compact('data', 'type'));
+    }
+
+    public function update(Request $request, $type, $id)
+    {
+        if ($type == 'pemasukan') {
+            $data = Pemasukan::findOrFail($id);
+        } else {
+            $data = Pengeluaran::findOrFail($id);
+        }
+
+        $data->update($request->all());
+        return redirect()->route('admin.laporan_keuangan.index')
+                         ->with('success', 'Data berhasil diperbarui.');
+    }
+
+    public function destroy($type, $id)
+    {
+        if ($type == 'pemasukan') {
+            Pemasukan::destroy($id);
+        } else {
+            Pengeluaran::destroy($id);
+        }
 
         return redirect()->route('admin.laporan_keuangan.index')
-                         ->with('success', 'Laporan berhasil diperbarui.');
+                         ->with('success', 'Data berhasil dihapus.');
     }
 }

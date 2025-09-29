@@ -79,14 +79,33 @@ Route::get('/admin/dashboard', [AdminDashboardController::class, 'dashboard'])->
     // Export Pembayaran (Admin)
     Route::get('/admin/pembayaran/export', [ExportPembayaranController::class, 'exportExcel'])->name('pembayaran.export');
 
-    // Laporan Keuangan (Admin)
-   Route::get('/admin/laporan-keuangan', [LaporanKeuanganController::class, 'index'])->name('admin.laporan_keuangan.index');
 
-   // Edit form
-   Route::get('/admin/laporan-keuangan/{id}/edit', [LaporanKeuanganController::class, 'edit'])->name('admin.laporan_keuangan.edit');
+// laporan keuangan (Admin)
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/laporan-keuangan', [App\Http\Controllers\LaporanKeuanganController::class, 'index'])
+        ->name('laporan_keuangan.index');
 
-   // Proses update
-Route::put('/admin/laporan-keuangan/{id}', [LaporanKeuanganController::class, 'update'])->name('admin.laporan_keuangan.update');
+    Route::post('/laporan-keuangan/pemasukan', [App\Http\Controllers\LaporanKeuanganController::class, 'storePemasukan'])
+        ->name('laporan_keuangan.store_pemasukan');
+
+    Route::post('/laporan-keuangan/pengeluaran', [App\Http\Controllers\LaporanKeuanganController::class, 'storePengeluaran'])
+        ->name('laporan_keuangan.store_pengeluaran');
+
+    Route::get('/laporan-keuangan/{type}/{id}/edit', [App\Http\Controllers\LaporanKeuanganController::class, 'edit'])
+        ->name('laporan_keuangan.edit');
+
+    Route::put('/laporan-keuangan/{type}/{id}', [App\Http\Controllers\LaporanKeuanganController::class, 'update'])
+        ->name('laporan_keuangan.update');
+
+    Route::delete('/laporan-keuangan/{type}/{id}', [App\Http\Controllers\LaporanKeuanganController::class, 'destroy'])
+        ->name('laporan_keuangan.destroy');
+});
+
+
+
+
+
+
 
 
 
