@@ -163,27 +163,5 @@ class TagihanController extends Controller
 
         return view('admin.tagihan.pembayaran', compact('tagihan'));
     }
-    public function konfirmasiPembayaran($id)
-{
-    // update tagihan jadi lunas
-    DB::table('tagihan')->where('id_tagihan', $id)->update([
-        'status' => 'lunas',
-        'updated_at' => now()
-    ]);
-
-    // ambil data tagihan
-    $tagihan = DB::table('tagihan')->where('id_tagihan', $id)->first();
-
-    // masukkan otomatis ke pemasukan
-    DB::table('pemasukan')->insert([
-        'keterangan' => 'Pembayaran Tagihan #' . $tagihan->id_tagihan,
-        'jumlah'     => $tagihan->total_tagihan,
-        'tanggal'    => now(),
-        'created_at' => now(),
-        'updated_at' => now(),
-    ]);
-
-    return redirect()->back()->with('success', 'Pembayaran berhasil dikonfirmasi dan dicatat ke keuangan.');
-}
-
+    
 }

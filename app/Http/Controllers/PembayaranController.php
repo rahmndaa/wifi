@@ -94,6 +94,16 @@ public function index(Request $request)
             'status' => 'lunas'
         ]);
 
+         // --- Tambahkan otomatis pencatatan pemasukan ---
+        $tagihan = DB::table('tagihan')->where('id_tagihan', $id_tagihan)->first();
+
+        DB::table('pemasukan')->insert([
+            'tanggal' => Carbon::now(),
+            'keterangan' => 'Pembayaran Tagihan #' . $id_tagihan . ' oleh ' . $tagihan->id_pelanggan,
+            'jumlah' => $tagihan->total_tagihan,
+        ]);
+         // --- Selesai ---
+
         return redirect()->route('admin.tagihan')->with('success', 'Pembayaran berhasil diproses.');
     }
 }

@@ -9,17 +9,32 @@ use Illuminate\Support\Facades\DB;
 
 class KeuanganController extends Controller
 {
-    public function index()
-    {
-        $pemasukan = DB::table('pemasukan')->orderBy('tanggal', 'desc')->get();
-        $pengeluaran = DB::table('pengeluaran')->orderBy('tanggal', 'desc')->get();
+public function index(Request $request)
+{
+    $queryPemasukan = Pemasukan::query();
+    $queryPengeluaran = Pengeluaran::query();
 
-        $totalPemasukan = $pemasukan->sum('jumlah');
-        $totalPengeluaran = $pengeluaran->sum('jumlah');
-
-        return view('page.keuangan.index', compact('pemasukan', 'pengeluaran', 'totalPemasukan', 'totalPengeluaran'));
+    if ($request->filled('dari') && $request->filled('sampai')) {
+        $queryPemasukan->whereBetween('tanggal', [$request->dari, $request->sampai]);
+        $queryPengeluaran->whereBetween('tanggal', [$request->dari, $request->sampai]);
+    } elseif ($request->filled('dari')) {
+        $queryPemasukan->where('tanggal', '>=', $request->dari);
+        $queryPengeluaran->where('tanggal', '>=', $request->dari);
+    } elseif ($request->filled('sampai')) {
+        $queryPemasukan->where('tanggal', '<=', $request->sampai);
+        $queryPengeluaran->where('tanggal', '<=', $request->sampai);
     }
 
+    $pemasukan = $queryPemasukan->orderBy('tanggal', 'desc')->get();
+    $pengeluaran = $queryPengeluaran->orderBy('tanggal', 'desc')->get();
+
+    $totalPemasukan = $pemasukan->sum('jumlah');
+    $totalPengeluaran = $pengeluaran->sum('jumlah');
+
+    return view('page.keuangan.index', compact(
+        'pemasukan', 'pengeluaran', 'totalPemasukan', 'totalPengeluaran'
+    ));
+}
 
     public function storePemasukan(Request $request)
     {
