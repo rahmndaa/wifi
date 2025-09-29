@@ -115,6 +115,13 @@
                   <p>Pembayaran</p>
                 </a>
               </li>
+              
+              <li class="nav-item {{ request()->routeIs('admin.keuangan.index') ? 'active' : '' }}">
+                  <a href="{{ route('admin.keuangan.index') }}">
+                      <i class="fas fa-coins"></i>
+                      <p>Keuangan</p>
+                  </a>
+              </li>
 
               <li class="nav-item {{ request()->is('admin.aset') ? 'active' : '' }}">
                 <a href="{{ route('admin.aset') }}">

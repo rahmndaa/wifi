@@ -14,6 +14,7 @@ use App\Http\Controllers\KomplainPelangganController;
 use App\Http\Controllers\AsetController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ExportPembayaranController;
+use App\Http\Controllers\KeuanganController;
 
 Route::get('/', function () {
     return view('pelanggan.login');
@@ -77,6 +78,26 @@ Route::get('/admin/dashboard', [AdminDashboardController::class, 'dashboard'])->
 
     // Export Pembayaran (Admin)
     Route::get('/admin/pembayaran/export', [ExportPembayaranController::class, 'exportExcel'])->name('pembayaran.export');
+    
+    Route::prefix('admin/keuangan')->name('admin.keuangan.')->group(function () {
+        Route::get('/', [KeuanganController::class, 'index'])->name('index');
+
+        // Pemasukan
+        Route::get('/pemasukan/create', [KeuanganController::class, 'createPemasukan'])->name('createPemasukan');
+        Route::post('/pemasukan/store', [KeuanganController::class, 'storePemasukan'])->name('storePemasukan');
+        Route::get('/pemasukan/edit/{id}', [KeuanganController::class, 'editPemasukan'])->name('editPemasukan');
+        Route::put('/pemasukan/update/{id}', [KeuanganController::class, 'updatePemasukan'])->name('updatePemasukan');
+        Route::delete('/pemasukan/destroy/{id}', [KeuanganController::class, 'destroyPemasukan'])->name('destroyPemasukan');
+
+        // Pengeluaran
+        Route::get('/pengeluaran/create', [KeuanganController::class, 'createPengeluaran'])->name('createPengeluaran');
+        Route::post('/pengeluaran/store', [KeuanganController::class, 'storePengeluaran'])->name('storePengeluaran');
+        Route::get('/pengeluaran/edit/{id}', [KeuanganController::class, 'editPengeluaran'])->name('editPengeluaran');
+        Route::put('/pengeluaran/update/{id}', [KeuanganController::class, 'updatePengeluaran'])->name('updatePengeluaran');
+        Route::delete('/pengeluaran/destroy/{id}', [KeuanganController::class, 'destroyPengeluaran'])->name('destroyPengeluaran');
+    });
+
+
 
 
 // Route pelanggan
