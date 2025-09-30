@@ -21,16 +21,6 @@
             </li>
         </ul>
     </div>
-    
-    {{-- Kanan: Tombol Export --}}
-  <div>
-  <a href="{{ route('pembayaran.export', [
-      'tahun' => request('tahun'),
-      'bulan' => request('bulan'),
-      'status' => request('status')
-  ]) }}" class="btn btn-success btn-sm">Export</a>
-  </div>
-
 </div>
 
 
@@ -67,7 +57,14 @@
           <i class="fa fa-search"></i>
         </button>
       </div>
-
+    {{-- Kanan: Tombol Export --}}
+      <div class="col-md-2">
+      <a href="{{ route('pembayaran.export', [
+          'tahun' => request('tahun'),
+          'bulan' => request('bulan'),
+          'status' => request('status')
+      ]) }}" class="btn btn-success btn-sm">Export</a>
+      </div>
       </form>
 
     {{-- Tabel Pembayaran --}}
