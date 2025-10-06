@@ -35,13 +35,23 @@
                                value="{{ old('keterangan', $pengeluaran->keterangan) }}">
                         @error('keterangan') <small class="text-danger">{{ $message }}</small> @enderror
                     </div>
+<div class="mb-3">
+    <label class="form-label">Jumlah</label>
+    <input type="number" name="jumlah" id="jumlah_edit_pengeluaran" 
+           class="form-control" placeholder="250000"
+           value="{{ old('jumlah', $pengeluaran->jumlah) }}" 
+           min="0" required>
+    @error('jumlah') <small class="text-danger">{{ $message }}</small> @enderror
+</div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Jumlah</label>
-                        <input type="number" name="jumlah" class="form-control" placeholder="250000"
-                               value="{{ old('jumlah', $pengeluaran->jumlah) }}">
-                        @error('jumlah') <small class="text-danger">{{ $message }}</small> @enderror
-                    </div>
+<script>
+document.getElementById("jumlah_edit_pengeluaran").addEventListener("input", function() {
+    if (this.value < 0) {
+        this.value = Math.abs(this.value); // otomatis jadi positif
+    }
+});
+</script>
+
 
                     <a href="{{ route('admin.keuangan.index') }}" class="btn btn-danger">Batal</a>
                     <button type="submit" class="btn btn-primary">Perbarui</button>

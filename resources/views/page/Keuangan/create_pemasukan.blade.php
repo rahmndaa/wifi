@@ -31,12 +31,26 @@
                         <input type="text" name="keterangan" class="form-control" placeholder="Deskripsi" value="{{ old('keterangan') }}">
                         @error('keterangan') <small class="text-danger">{{ $message }}</small> @enderror
                     </div>
+<div class="mb-3">
+    <label class="form-label">Jumlah</label>
+    <input type="number" name="jumlah" id="jumlah" class="form-control" 
+           placeholder="250000" 
+           value="{{ old('jumlah') }}" 
+           min="0" required>
+    @error('jumlah') 
+        <small class="text-danger">{{ $message }}</small> 
+    @enderror
+</div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Jumlah</label>
-                        <input type="number" name="jumlah" class="form-control" placeholder="250000" value="{{ old('jumlah') }}">
-                        @error('jumlah') <small class="text-danger">{{ $message }}</small> @enderror
-                    </div>
+{{-- Opsional: untuk jaga-jaga kalau user tetap ketik tanda minus --}}
+<script>
+document.getElementById("jumlah").addEventListener("input", function() {
+    if (this.value < 0) {
+        this.value = Math.abs(this.value); // otomatis ubah ke positif
+    }
+});
+</script>
+
 
                     <!-- {{-- Kalau mau ada jenis pembayaran, tinggal tambah field di model dan migrasi --}}
                     {{-- <div class="mb-3">
