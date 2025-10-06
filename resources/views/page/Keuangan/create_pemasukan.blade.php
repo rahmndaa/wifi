@@ -22,7 +22,7 @@
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Tanggal</label>
-                        <input type="date" name="tanggal" class="form-control" value="{{ old('tanggal') }}">
+                        <input type="date" name="tanggal" class="form-control" value="{{ old('tanggal') }}"required>
                         @error('tanggal') <small class="text-danger">{{ $message }}</small> @enderror
                     </div>
 
@@ -34,8 +34,9 @@
 
                     <div class="mb-3">
                         <label class="form-label">Jumlah</label>
-                        <input type="number" name="jumlah" class="form-control" placeholder="250000" value="{{ old('jumlah') }}">
-                        @error('jumlah') <small class="text-danger">{{ $message }}</small> @enderror
+                        <input type="number" name="jumlah" class="form-control @error('jumlah') is-invalid @enderror" placeholder="250000" value="{{ old('jumlah') }}" min="0" required oninput="cekJumlah(this)">
+                        @error('jumlah') <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <!-- {{-- Kalau mau ada jenis pembayaran, tinggal tambah field di model dan migrasi --}}
@@ -54,4 +55,5 @@
         </div>
     </div>
 </div>
+
 @endsection

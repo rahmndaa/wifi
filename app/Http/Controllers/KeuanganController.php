@@ -42,7 +42,7 @@ class KeuanganController extends Controller
         $request->validate([
             'tanggal' => 'required|date',
             'keterangan' => 'required|string',
-            'jumlah' => 'required|numeric',
+            'jumlah' => 'required|numeric|min:0',
         ]);
 
         Pemasukan::create($request->all());
@@ -66,7 +66,7 @@ class KeuanganController extends Controller
         $request->validate([
             'tanggal' => 'required|date',
             'keterangan' => 'required|string',
-            'jumlah' => 'required|numeric',
+            'jumlah' => 'required|numeric|min:0',
         ]);
 
         $pemasukan = Pemasukan::findOrFail($id);
@@ -83,7 +83,7 @@ class KeuanganController extends Controller
         $request->validate([
             'tanggal' => 'required|date',
             'keterangan' => 'required|string',
-            'jumlah' => 'required|numeric',
+            'jumlah' => 'required|numeric|min:0',
         ]);
 
         Pengeluaran::create($request->all());
@@ -108,7 +108,7 @@ class KeuanganController extends Controller
         $request->validate([
             'tanggal' => 'required|date',
             'keterangan' => 'required|string',
-            'jumlah' => 'required|numeric',
+            'jumlah' => 'required|numeric|min:0',
         ]);
 
         $pengeluaran = Pengeluaran::findOrFail($id);
