@@ -42,7 +42,19 @@ class KeuanganController extends Controller
         $request->validate([
             'tanggal' => 'required|date',
             'keterangan' => 'required|string',
-            'jumlah' => 'required|numeric|min:0',
+            'jumlah' => ['required', 'numeric', 'min:0',
+             function ($attribute, $value, $fail) {
+            if (preg_match('/^-0+(\.0+)?$/', $value)) {
+                $fail('Nilai tidak boleh negatif!');
+            }
+        },
+    ],
+        ], [
+            'tanggal.required' => 'Tanggal wajib diisi!',
+            'keterangan.required' => 'Deskripsi wajib diisi!',
+            'jumlah.min' => 'Nilai tidak boleh negatif!',
+            'jumlah.required' => 'Jumlah wajib diisi!',
+            'jumlah.numeric' => 'Jumlah harus berupa angka!',
         ]);
 
         Pemasukan::create($request->all());
@@ -66,7 +78,19 @@ class KeuanganController extends Controller
         $request->validate([
             'tanggal' => 'required|date',
             'keterangan' => 'required|string',
-            'jumlah' => 'required|numeric|min:0',
+            'jumlah' => ['required', 'numeric', 'min:0',
+             function ($attribute, $value, $fail) {
+            if (preg_match('/^-0+(\.0+)?$/', $value)) {
+                $fail('Nilai tidak boleh negatif!');
+            }
+        },
+    ],
+        ], [
+            'tanggal.required' => 'Tanggal wajib diisi!',
+            'keterangan.required' => 'Deskripsi wajib diisi!',
+            'jumlah.min' => 'Nilai tidak boleh negatif!',
+            'jumlah.required' => 'Jumlah wajib diisi!',
+            'jumlah.numeric' => 'Jumlah harus berupa angka!',
         ]);
 
         $pemasukan = Pemasukan::findOrFail($id);
@@ -75,14 +99,26 @@ class KeuanganController extends Controller
         return redirect()->route('admin.keuangan.index')
             ->with('success', 'Pemasukan berhasil diupdate');
     }
-    
+
 
     public function storePengeluaran(Request $request)
     {
         $request->validate([
             'tanggal' => 'required|date',
             'keterangan' => 'required|string',
-            'jumlah' => 'required|numeric|min:0',
+            'jumlah' => ['required', 'numeric', 'min:0',
+            function ($attribute, $value, $fail) {
+            if (preg_match('/^-0+(\.0+)?$/', $value)) {
+                $fail('Nilai tidak boleh negatif!');
+            }
+        },
+    ],
+        ], [
+            'tanggal.required' => 'Tanggal wajib diisi!',
+            'keterangan.required' => 'Deskripsi wajib diisi!',
+             'jumlah.min' => 'Nilai tidak boleh negatif!',
+             'jumlah.required' => 'Jumlah wajib diisi!',
+             'jumlah.numeric' => 'Jumlah harus berupa angka!',
         ]);
 
         Pengeluaran::create($request->all());
@@ -106,7 +142,19 @@ class KeuanganController extends Controller
         $request->validate([
             'tanggal' => 'required|date',
             'keterangan' => 'required|string',
-            'jumlah' => 'required|numeric|min:0',
+            'jumlah' => ['required', 'numeric', 'min:0',
+             function ($attribute, $value, $fail) {
+            if (preg_match('/^-0+(\.0+)?$/', $value)) {
+                $fail('Nilai tidak boleh negatif!');
+            }
+        },
+    ],
+        ], [
+            'tanggal.required' => 'Tanggal wajib diisi!',
+            'keterangan.required' => 'Deskripsi wajib diisi!',
+            'jumlah.required' => 'Jumlah wajib diisi!',
+            'jumlah.numeric' => 'Jumlah harus berupa angka!',
+            'jumlah.min' => 'Nilai tidak boleh negatif!',
         ]);
 
         $pengeluaran = Pengeluaran::findOrFail($id);
