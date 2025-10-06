@@ -32,11 +32,25 @@
                         @error('keterangan') <small class="text-danger">{{ $message }}</small> @enderror
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Jumlah</label>
-                        <input type="number" name="jumlah" class="form-control" placeholder="250000" value="{{ old('jumlah') }}">
-                        @error('jumlah') <small class="text-danger">{{ $message }}</small> @enderror
-                    </div>
+                 <div class="mb-3">
+    <label class="form-label">Jumlah</label>
+    <input type="number" name="jumlah" id="jumlah_pengeluaran" class="form-control" 
+           placeholder="250000" 
+           value="{{ old('jumlah') }}" 
+           min="0" required>
+    @error('jumlah') 
+        <small class="text-danger">{{ $message }}</small> 
+    @enderror
+</div>
+
+<script>
+document.getElementById("jumlah_pengeluaran").addEventListener("input", function() {
+    if (this.value < 0) {
+        this.value = Math.abs(this.value); // otomatis ubah ke positif
+    }
+});
+</script>
+
 
                     <a href="{{ route('admin.keuangan.index') }}" class="btn btn-danger">Batal</a>
                     <button type="submit" class="btn btn-primary">Simpan</button>

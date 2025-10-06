@@ -15,6 +15,7 @@ use App\Http\Controllers\AsetController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ExportPembayaranController;
 use App\Http\Controllers\KeuanganController;
+use App\Http\Controllers\KeuanganExportController;
 
 Route::get('/', function () {
     return view('pelanggan.login');
@@ -76,8 +77,10 @@ Route::get('/admin/dashboard', [AdminDashboardController::class, 'dashboard'])->
     Route::put('/admin/aset/{id}', [AsetController::class, 'update'])->name('admin.aset.update');
     Route::delete('/admin/aset/{id}', [AsetController::class, 'destroy'])->name('admin.aset.destroy');
 
-    // Export Pembayaran (Admin)
+    // Export(Admin)
     Route::get('/admin/pembayaran/export', [ExportPembayaranController::class, 'exportExcel'])->name('pembayaran.export');
+    Route::get('/admin/keuangan/export', [KeuanganExportController::class, 'export'])->name('admin.keuangan.export');
+
     
     Route::prefix('admin/keuangan')->name('admin.keuangan.')->group(function () {
         Route::get('/', [KeuanganController::class, 'index'])->name('index');

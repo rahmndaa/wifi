@@ -94,6 +94,18 @@ public function index(Request $request)
             'status' => 'lunas'
         ]);
 
+        $tagihan = DB::table('tagihan')
+            ->join('pelanggan', 'tagihan.id_pelanggan', '=', 'pelanggan.id_pelanggan')
+            ->where('tagihan.id_tagihan', $id_tagihan)
+            ->select('tagihan.*', 'pelanggan.nama_pelanggan')
+            ->first();
+
+        DB::table('pemasukan')->insert([
+            'tanggal' => Carbon::now(),
+            'keterangan' => 'Pembayaran Tagihan dari ' . $tagihan->nama_pelanggan,
+            'jumlah' => $tagihan->total_tagihan,
+        ]);
+
         return redirect()->route('admin.tagihan')->with('success', 'Pembayaran berhasil diproses.');
     }
 }
