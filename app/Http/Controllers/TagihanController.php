@@ -52,19 +52,21 @@ class TagihanController extends Controller
         if (!session('admin')) {
             return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
         }
+
         $request->validate([
             'id_pelanggan' => 'required',
             'periode_tahun' => 'required',
             'periode_bulan' => 'required',
             'status' => 'required',
-            'total_tagihan' => 'required',
+            'total_tagihan' => 'required|numeric|min:1',
+        ], [
+            'total_tagihan.min' => 'Total tagihan tidak boleh nol atau negatif.',
         ]);
 
         Tagihan::create($request->all());
 
         return redirect()->route('admin.tagihan')->with('success', 'Tagihan berhasil ditambahkan.');
     }
-
     public function show($id)
     {
         if (!session('admin')) {
@@ -89,13 +91,16 @@ class TagihanController extends Controller
         if (!session('admin')) {
             return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
         }
+
         $tagihan = Tagihan::findOrFail($id);
 
         $request->validate([
             'id_pelanggan' => 'required',
             'periode_tahun' => 'required',
             'periode_bulan' => 'required',
-            'total_tagihan' => 'required',
+            'total_tagihan' => 'required|numeric|min:1',
+        ], [
+            'total_tagihan.min' => 'Total tagihan tidak boleh nol atau negatif.',
         ]);
 
         $tagihan->update($request->all());

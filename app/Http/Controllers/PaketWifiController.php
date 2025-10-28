@@ -37,14 +37,45 @@ class PaketWifiController extends Controller
         return view('page.paket_wifi.create');
     }
 
-    public function store(Request $request)
-    {
-        if (!session('admin')) {
-            return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
-        }
-        PaketWifi::create($request->all());
-        return redirect()->route('admin.paket_wifi')->with('success', 'Data berhasil ditambahkan!');
+public function store(Request $request)
+{
+    if (!session('admin')) {
+        return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
     }
+
+    $request->validate([
+        'nama_paket' => 'required|string|max:255',
+        'kecepatan' => 'required|string|max:100',
+        'harga' => 'required|numeric|min:1', // harga minimal 1
+        'deskripsi' => 'nullable|string',
+    ], [
+        'harga.min' => 'Harga tidak boleh 0 atau negatif.',
+    ]);
+
+    PaketWifi::create($request->all());
+    return redirect()->route('admin.paket_wifi')->with('success', 'Data berhasil ditambahkan!');
+}
+
+public function update(Request $request, $id)
+{
+    if (!session('admin')) {
+        return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
+    }
+
+    $request->validate([
+        'nama_paket' => 'required|string|max:255',
+        'kecepatan' => 'required|string|max:100',
+        'harga' => 'required|numeric|min:1', // harga minimal 1
+        'deskripsi' => 'nullable|string',
+    ], [
+        'harga.min' => 'Harga tidak boleh 0 atau negatif.',
+    ]);
+
+    $paket = PaketWifi::findOrFail($id);
+    $paket->update($request->all());
+    return redirect()->route('admin.paket_wifi')->with('success', 'Data berhasil diubah!');
+}
+
 
     public function edit($id)
     {
@@ -53,16 +84,6 @@ class PaketWifiController extends Controller
         }
         $paket = PaketWifi::findOrFail($id);
         return view('page.paket_wifi.edit', compact('paket'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        if (!session('admin')) {
-            return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
-        }
-        $paket = PaketWifi::findOrFail($id);
-        $paket->update($request->all());
-        return redirect()->route('admin.paket_wifi')->with('success', 'Data berhasil ubah!');
     }
 
     public function destroy($id)

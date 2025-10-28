@@ -29,7 +29,6 @@ class PelangganController extends Controller
         return view('page.pelanggan.show', compact('pelanggan'));
     }
 
-    
     public function create()
     {
         if (!session('admin')) {
@@ -44,8 +43,23 @@ class PelangganController extends Controller
         if (!session('admin')) {
             return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
         }
+
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'no_wa' => 'required|digits_between:10,15|regex:/^[0-9]+$/',
+            'alamat' => 'required|string',
+            'paket_wifi_id' => 'required|exists:paket_wifi,id',
+            'username' => 'required|string|max:255|unique:pelanggan,username',
+            'password' => 'required|string|min:6',
+        ], [
+            'no_wa.required' => 'Nomor WhatsApp wajib diisi!',
+            'no_wa.regex' => 'Nomor WhatsApp hanya boleh berisi angka!',
+            'no_wa.digits_between' => 'Nomor WhatsApp harus terdiri dari 10 hingga 15 angka!',
+        ]);
+
         $request->merge(['password' => bcrypt($request->password)]);
         Pelanggan::create($request->all());
+
         return redirect()->route('admin.pelanggan')->with('success', 'Data berhasil ditambahkan!');
     }
 
@@ -64,12 +78,28 @@ class PelangganController extends Controller
         if (!session('admin')) {
             return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
         }
+
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'no_wa' => 'required|digits_between:10,15|regex:/^[0-9]+$/',
+            'alamat' => 'required|string',
+            'paket_wifi_id' => 'required|exists:paket_wifi,id',
+            'username' => 'required|string|max:255|unique:pelanggan,username,' . $id,
+            'password' => 'nullable|string|min:6',
+        ], [
+            'no_wa.required' => 'Nomor WhatsApp wajib diisi!',
+            'no_wa.regex' => 'Nomor WhatsApp hanya boleh berisi angka!',
+            'no_wa.digits_between' => 'Nomor WhatsApp harus terdiri dari 10 hingga 15 angka!',
+        ]);
+
         $pelanggan = Pelanggan::findOrFail($id);
+
         if ($request->filled('password')) {
             $request->merge(['password' => bcrypt($request->password)]);
         } else {
             $request->request->remove('password');
         }
+
         $pelanggan->update($request->all());
         return redirect()->route('admin.pelanggan')->with('success', 'Data berhasil di ubah!');
     }

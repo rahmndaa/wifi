@@ -44,11 +44,12 @@
 
                                     <div class="form-group mb-3">
                                         <label>No. WhatsApp</label>
-                                        <input type="text" name="no_whatsapp" class="form-control" required>
+                                        <input type="text" name="no_whatsapp" class="form-control" 
+                                            required maxlength="15" minlength="10" 
+                                            oninput="this.value=this.value.replace(/[^0-9]/g,'')" >
                                     </div>
                                 </div>
-
-                                <div class="col-md-6">
+                                    <div class="col-md-6">
                                     <div class="form-group mb-3">
                                         <label>Paket WiFi</label>
                                         <select name="id_paket" class="form-control" required>

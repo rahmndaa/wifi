@@ -83,7 +83,6 @@
                     </div>
                 </div>
             </div>
-
             {{-- Balance dengan Warna Dinamis --}}
             @php
                 $balance = $totalPemasukan - $totalPengeluaran;
@@ -109,7 +108,6 @@
                                     </h4>
                                     @if($balance >= 0)
                                     @else
-
                                     @endif
                                 </div>
                             </div>

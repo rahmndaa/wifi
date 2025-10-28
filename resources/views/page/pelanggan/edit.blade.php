@@ -41,7 +41,10 @@
 
                                     <div class="form-group mb-3">
                                         <label>No. WhatsApp:</label>
-                                        <input type="text" name="no_whatsapp" class="form-control" value="{{ $pelanggan->no_whatsapp }}" required>
+                                        <input type="text" name="no_whatsapp" class="form-control" 
+                                            value="{{ $pelanggan->no_whatsapp }}" 
+                                            required maxlength="15" minlength="10" 
+                                            oninput="this.value=this.value.replace(/[^0-9]/g,'')">
                                     </div>
                                 </div>
 

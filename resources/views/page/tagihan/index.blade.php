@@ -44,7 +44,7 @@
       <div class="col-md-2">
         <select name="tahun" class="form-control">
           <option value="">Tahun</option>
-          @for ($i = date('Y'); $i >= 2020; $i--)
+          @for ($i = 2020; $i <= 2030; $i++)
             <option value="{{ $i }}" {{ request('tahun') == $i ? 'selected' : '' }}>{{ $i }}</option>
           @endfor
         </select>
