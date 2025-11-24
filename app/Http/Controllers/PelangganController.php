@@ -93,17 +93,7 @@ class PelangganController extends Controller
         if (!session('admin')) {
             return redirect()->route('admin.login')->withErrors('Silahkan login dahulu.');
         }
-
-        $request->validate([
-            'nama_pelanggan' => 'required|string|max:255',
-            'username'       => 'required|string|max:255|unique:pelanggan,username,' . $id . ',id_pelanggan',
-            'password'       => 'nullable|string|min:6',
-            'no_whatsapp'    => 'required|digits_between:10,15|regex:/^[0-9]+$/',
-            'alamat'         => 'required|string',
-            'tanggal_gabung' => 'required|date',
-            'status_pelanggan' => 'required|in:aktif,arsip',
-            'id_paket'       => 'required|exists:paket_wifi,id_paket',
-        ]);
+        
 
         $pelanggan = Pelanggan::findOrFail($id);
 
