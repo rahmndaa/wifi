@@ -12,14 +12,16 @@ return new class extends Migration
     public function up() {
         Schema::create('pelanggan', function (Blueprint $table) {
             $table->id('id_pelanggan');
-            $table->foreignId('id_paket')->constrained('paket_wifi','id_paket')->onDelete('cascade');
-            $table->string('nama_pelanggan')->notNull();
-            $table->string('username')->unique();
-            $table->string('password')->notNull();
-            $table->string('no_whatsapp')->notNull();
-            $table->string('alamat')->notNull();
-            $table->date('tanggal_gabung')->notNull();
-            $table->enum('status_pelanggan', ['aktif', 'arsip'])->notNull();
+            $table->foreignId('id_paket')->nullable()->constrained('paket_wifi','id_paket')->onDelete('cascade');
+            $table->foreignId('id_odp')->nullable(); // Pastikan id_odp ada untuk relasi
+            $table->string('nama_pelanggan');
+            $table->string('paket')->nullable(); 
+            $table->string('username')->nullable();
+            $table->string('password')->nullable();
+            $table->string('no_whatsapp')->nullable();
+            $table->string('alamat')->nullable();
+            $table->date('tanggal_gabung')->nullable();
+            $table->enum('status_pelanggan', ['aktif', 'arsip'])->default('aktif');
         });
     }
 
