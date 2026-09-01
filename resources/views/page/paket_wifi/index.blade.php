@@ -53,7 +53,7 @@
             <form id="form-hapus-mobile-{{ $p->id_paket }}" action="{{ route('admin.paket_wifi.destroy', $p->id_paket) }}" method="POST" class="d-inline">
               @csrf
               @method('DELETE')
-              <button type="button" class="btn btn-danger btn-sm py-1 px-2 btn-hapus" data-id="{{ $p->id_paket }}" title="Hapus">
+              <button type="button" class="btn btn-danger btn-sm py-1 px-2 btn-hapus" title="Hapus">
                 <i class="fa fa-times"></i> Hapus
               </button>
             </form>
@@ -91,7 +91,7 @@
                     <form id="form-hapus-{{ $p->id_paket }}" action="{{ route('admin.paket_wifi.destroy', $p->id_paket) }}" method="POST" class="d-inline">
                       @csrf
                       @method('DELETE')
-                      <button type="button" class="btn btn-icon btn-round btn-danger btn-sm shadow-sm btn-hapus" data-id="{{ $p->id_paket }}" data-bs-toggle="tooltip" title="Hapus Paket">
+                      <button type="button" class="btn btn-icon btn-round btn-danger btn-sm shadow-sm btn-hapus" data-bs-toggle="tooltip" title="Hapus Paket">
                         <i class="fa fa-times"></i>
                       </button>
                     </form>
@@ -108,3 +108,36 @@
   </div>
 </div>
 @endsection
+
+@push('scripts')
+{{-- Script SweetAlert2 CDN jika di admin-master belum terpasang --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const deleteButtons = document.querySelectorAll('.btn-hapus');
+
+    deleteButtons.forEach(button => {
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+        const form = this.closest('form');
+
+        Swal.fire({
+          title: 'Apakah Anda yakin?',
+          text: 'Data paket Wi-Fi ini akan dihapus secara permanen!',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#d33',
+          cancelButtonColor: '#6c757d',
+          confirmButtonText: 'Ya, Hapus!',
+          cancelButtonText: 'Batal'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
+      });
+    });
+  });
+</script>
+@endpush

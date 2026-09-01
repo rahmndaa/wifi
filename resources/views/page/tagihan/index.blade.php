@@ -123,7 +123,7 @@
                 <form action="{{ route('admin.tagihan.destroy', $t->id_tagihan) }}" method="POST" class="d-inline" id="form-hapus-mobile-{{ $t->id_tagihan }}">
                   @csrf
                   @method('DELETE')
-                  <button type="button" class="btn btn-danger btn-sm py-1 px-2 btn-hapus" data-id="{{ $t->id_tagihan }}" title="Hapus">
+                  <button type="button" class="btn btn-danger btn-sm py-1 px-2 btn-hapus-tagihan" title="Hapus">
                     <i class="fa fa-times"></i>
                   </button>
                 </form>
@@ -184,7 +184,7 @@
                       <form action="{{ route('admin.tagihan.destroy', $t->id_tagihan) }}" method="POST" class="d-inline" id="form-hapus-{{ $t->id_tagihan }}">
                         @csrf
                         @method('DELETE')
-                        <button type="button" class="btn btn-icon btn-round btn-danger btn-sm shadow-sm btn-hapus" data-id="{{ $t->id_tagihan }}" data-bs-toggle="tooltip" title="Hapus">
+                        <button type="button" class="btn btn-icon btn-round btn-danger btn-sm shadow-sm btn-hapus-tagihan" data-bs-toggle="tooltip" title="Hapus">
                           <i class="fa fa-times"></i>
                         </button>
                       </form>
@@ -202,3 +202,30 @@
   </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.btn-hapus-tagihan').forEach(function (button) {
+      button.addEventListener('click', function () {
+        const form = this.closest('form');
+
+        Swal.fire({
+          title: 'Hapus tagihan?',
+          text: 'Data tagihan ini akan dihapus secara permanen.',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#d33',
+          cancelButtonColor: '#6c757d',
+          confirmButtonText: 'Ya, hapus',
+          cancelButtonText: 'Batal'
+        }).then(function (result) {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
+      });
+    });
+  });
+</script>
+@endpush

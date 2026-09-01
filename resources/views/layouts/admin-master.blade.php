@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>FDLnet Gladag</title>
+    <title>FDLnet</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
-    <link rel="icon" href="{{ asset('kaiadmin/assets/img/kaiadmin/favicon.ico') }}" type="image/x-icon" />
+    <link rel="icon" src="{{ asset('kaiadmin/assets/favicon.ico') }}" type="image/x-icon" />
 
     <!-- Fonts and icons -->
     <script src="{{ asset('kaiadmin/assets/js/plugin/webfont/webfont.min.js') }}"></script>
@@ -326,5 +326,7 @@
         });
     </script>
     @endif
+
+    @stack('scripts')
 </body>
 </html>

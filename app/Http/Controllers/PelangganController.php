@@ -48,9 +48,9 @@ class PelangganController extends Controller
 
         $request->validate([
             'nama_pelanggan' => 'required|string|max:255',
-            'username'       => 'required|string|max:255|min:5|unique:pelanggan,username',
-            'password'       => 'required|string|min:8',
-            'no_whatsapp'    => 'required|digits_between:10,15|regex:/^[0-9]+$/',
+            'username'       => 'required|string|max:255|unique:pelanggan,username',
+            'password'       => 'required|string',
+            'no_whatsapp'    => 'required|regex:/^[0-9]+$/',
             'alamat'         => 'required|string',
             'tanggal_gabung' => 'required|date',
             'status_pelanggan' => 'required|in:aktif,arsip',
@@ -59,7 +59,6 @@ class PelangganController extends Controller
             'nama_pelanggan.required' => 'Nama pelanggan wajib diisi!',
             'no_whatsapp.required'    => 'Nomor WhatsApp wajib diisi!',
             'no_whatsapp.regex'       => 'Nomor WhatsApp hanya boleh berisi angka!',
-            'no_whatsapp.digits_between' => 'Nomor WhatsApp harus terdiri dari 10 hingga 15 angka!',
             'alamat.required'         => 'Alamat wajib diisi!',
             'id_paket.required'       => 'Paket WiFi wajib dipilih!',
             'id_paket.exists'         => 'Paket WiFi tidak valid!',
@@ -69,8 +68,16 @@ class PelangganController extends Controller
             'status_pelanggan.required' => 'Status pelanggan wajib diisi!',
         ]);
 
-        $data = $request->all();
-        $data['password'] = bcrypt($request->password);
+        $data = $request->only([
+            'nama_pelanggan',
+            'username',
+            'no_whatsapp',
+            'alamat',
+            'tanggal_gabung',
+            'status_pelanggan',
+            'id_paket',
+        ]);
+        $data['password'] = bcrypt($request->input('password'));
 
         Pelanggan::create($data);
 
