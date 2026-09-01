@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    {{-- Tampilan Card Khusus Mobile (Agar Tidak Geser Sama Sekali) --}}
+    {{-- Tampilan Card Khusus Mobile --}}
     <div class="d-block d-md-none">
       @foreach ($paket as $p)
       <div class="card border-0 shadow-sm mb-3 rounded-3">
@@ -50,10 +50,10 @@
             <a href="{{ route('admin.paket_wifi.edit', $p->id_paket) }}" class="btn btn-warning btn-sm py-1 px-2 text-white" title="Edit">
               <i class="fa fa-edit"></i> Edit
             </a>
-            <form id="form-hapus-mobile-{{ $p->id_paket }}" action="{{ route('admin.paket_wifi.destroy', $p->id_paket) }}" method="POST" class="d-inline">
+            <form action="{{ route('admin.paket_wifi.destroy', $p->id_paket) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus paket {{ $p->nama_paket }}?');">
               @csrf
               @method('DELETE')
-              <button type="button" class="btn btn-danger btn-sm py-1 px-2 btn-hapus" title="Hapus">
+              <button type="submit" class="btn btn-danger btn-sm py-1 px-2" title="Hapus">
                 <i class="fa fa-times"></i> Hapus
               </button>
             </form>
@@ -63,7 +63,7 @@
       @endforeach
     </div>
 
-    {{-- Tabel Normal (Hanya Tampil di Tablet & Laptop / d-none d-md-block) --}}
+    {{-- Tabel Normal (Tablet & Laptop) --}}
     <div class="card border-0 shadow-sm rounded-4 d-none d-md-block">
       <div class="card-body p-0">
         <div class="table-responsive">
@@ -88,10 +88,10 @@
                     <a href="{{ route('admin.paket_wifi.edit', $p->id_paket) }}" class="btn btn-icon btn-round btn-warning btn-sm shadow-sm" data-bs-toggle="tooltip" title="Edit Paket">
                       <i class="fa fa-edit"></i>
                     </a>
-                    <form id="form-hapus-{{ $p->id_paket }}" action="{{ route('admin.paket_wifi.destroy', $p->id_paket) }}" method="POST" class="d-inline">
+                    <form action="{{ route('admin.paket_wifi.destroy', $p->id_paket) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus paket {{ $p->nama_paket }}?');">
                       @csrf
                       @method('DELETE')
-                      <button type="button" class="btn btn-icon btn-round btn-danger btn-sm shadow-sm btn-hapus" data-bs-toggle="tooltip" title="Hapus Paket">
+                      <button type="submit" class="btn btn-icon btn-round btn-danger btn-sm shadow-sm" data-bs-toggle="tooltip" title="Hapus Paket">
                         <i class="fa fa-times"></i>
                       </button>
                     </form>
@@ -108,36 +108,3 @@
   </div>
 </div>
 @endsection
-
-@push('scripts')
-{{-- Script SweetAlert2 CDN jika di admin-master belum terpasang --}}
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const deleteButtons = document.querySelectorAll('.btn-hapus');
-
-    deleteButtons.forEach(button => {
-      button.addEventListener('click', function (e) {
-        e.preventDefault();
-        const form = this.closest('form');
-
-        Swal.fire({
-          title: 'Apakah Anda yakin?',
-          text: 'Data paket Wi-Fi ini akan dihapus secara permanen!',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#d33',
-          cancelButtonColor: '#6c757d',
-          confirmButtonText: 'Ya, Hapus!',
-          cancelButtonText: 'Batal'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            form.submit();
-          }
-        });
-      });
-    });
-  });
-</script>
-@endpush
